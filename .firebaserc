@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "cloaki-studio"
-  }
+  },
+  "targets": {
+    "cloaki-studio": {
+      "hosting": {
+        "mainsite": [
+          "cloak-studio"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

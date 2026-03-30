@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "site": "cloak-studio",
-    "public": "public", 
+    "target": "mainsite",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
