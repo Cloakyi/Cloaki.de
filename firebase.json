@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "cloak-studio",
+    "public": "public", 
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

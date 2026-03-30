@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Command Overlay (Perfekter Loop)</title>
+    <style>
+        /* Grundeinstellungen */
+        body {
+            background-color: transparent; 
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Der feste Rahmen */
+        .scrolling-container {
+            height: 600px; /* Die Höhe deines OBS-Fensters */
+            overflow: hidden;
+            position: relative;
+            /* Der weiche Übergang oben und unten */
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* Die Schiene, auf der alles läuft */
+        .track {
+            display: flex;
+            flex-direction: column;
+            /* Die Geschwindigkeit der Animation. Höher = langsamer */
+            animation: scrollSeamless 50s linear infinite;
+        }
+
+        /* Ein einzelner Listen-Block */
+        .command-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-bottom: 10px; /* Wichtig für die perfekte Lücke beim Reset */
+        }
+
+        /* Das Aussehen deiner Buttons */
+        .command-badge {
+            background-color: #009cff; /* Dein helles Blau */
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            box-shadow: inset 0px -4px 0px rgba(0,0,0,0.15);
+        }
+
+        /* Die perfekte Mathematik-Animation */
+        @keyframes scrollSeamless {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                /* Verschiebt die gesamte Schiene exakt um die Hälfte nach oben. 
+                   Da beide Hälften identisch sind, sieht der Sprung zurück auf 0% nahtlos aus. */
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scrolling-container">
+        <div class="track" id="track">
+            <div class="command-list" id="list1"></div>
+            <div class="command-list" id="list2"></div>
+        </div>
+    </div>
+
+    <script>
+        /* =========================================
+           DEINE BEFEHLE
+           ========================================= */
+        const meineBefehle = [
+            "/Paper",
+            "/Pat",
+            "/Food",
+            "/Ball",
+            "!Boop",
+            "!Cute",
+            "!Quack",
+            "-play song"
+        ];
+
+        const list1 = document.getElementById('list1');
+        const list2 = document.getElementById('list2');
+
+        // Wir hängen deine Liste einfach 4x hintereinander. 
+        // So ist sie auf jeden Fall massiv lang und füllt den Bildschirm sicher aus.
+        for (let i = 0; i < 4; i++) {
+            meineBefehle.forEach(befehl => {
+                const badge = document.createElement('div');
+                badge.className = 'command-badge';
+                badge.innerText = "• " + befehl;
+                list1.appendChild(badge);
+            });
+        }
+
+        // Jetzt kopieren wir diese massiv lange Liste exakt in die zweite Hälfte
+        list2.innerHTML = list1.innerHTML;
+    </script>
+
+</body>
+</html>

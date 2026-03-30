@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloaki</title>
+<meta name="description" content="Cloaki – Furry, Gamer, Streamer & YouTuber. Vernetze dich über Twitch, YouTube, Discord, VRChat und mehr mein gesamtes Profil an einem Ort.">
+<meta name="theme-color" content="#18baf0" />
+<meta name="author" content="Cloaki">
+<link rel="author" href="https://discord.gg/suwEMTC9b7" />
+
+<meta property="og:title" content="Cloaki" />
+<meta property="og:description" content="Find out more about my wonderful personality and visit all my channels." />
+<meta property="og:url" content="https://cloaki.de/" />
+<meta property="og:image" content="https://cloaki.de/bilder/Cloaki-Profiel-1x1.webp" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cloaki" />
+
+<link rel="icon" type="image/png" href="https://cloaki.de/Unbenannt.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln" role="button">
+    <i aria-hidden="true">🌙</i>
+  </div>
+
+  <div class="profile-container">
+    <div class="banner">
+      <img src="bilder/VRChat_coed.webp" alt="Profil-Banner">
+    </div>
+
+    <div class="avatar">
+      <img src="bilder/Cloaki-Profiel-1x1.webp" alt="Avatar">
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-info">
+        <div class="username">Cloaki</div>
+        <div class="pronouns"><span class="emoji">🍕</span>・ Der, he, 彼 ・<span class="emoji">🍪</span></div>
+
+        <div class="roles">
+          <div class="roles-title">Persönliche Rollen</div>
+          <div class="role-tags">
+            <span>Kleiner Mensch</span>
+            <span>Fluff Gang</span>
+          </div>
+        </div>
+
+        <div class="links-title-container">
+          <div class="roles-title">Persönliche Links</div>
+        </div>
+
+        <div class="accounts">
+          <a href="https://www.tiktok.com/@cloakiy" target="_blank" class="account-button">
+            <span class="emoji">📱</span> TikTok
+          </a>
+          <a href="https://www.twitch.tv/cloakiy" target="_blank" class="account-button">
+            <span class="emoji">🎥</span> Twitch
+          </a>
+          <a href="https://discord.gg/suwEMTC9b7" target="_blank" class="account-button">
+            <span class="emoji">🔊</span> Discord
+          </a>
+          <a href="https://ko-fi.com/cloaki" target="_blank" class="account-button">
+            <span class="emoji">☕</span> Ko-fi
+          </a>
+          <a href="https://www.youtube.com/@Cloaki" target="_blank" class="account-button">
+            <span class="emoji">🎬</span> Youtube
+          </a>
+          <a href="https://www.instagram.com/cloakiy/" target="_blank" class="account-button">
+            <span class="emoji">📷</span> instagram
+          </a>
+          <a href="https://x.com/Cloakiy" target="_blank" class="account-button">
+            <span class="emoji">✖️</span> X
+          </a>
+          <a href="https://www.reddit.com/user/Cloakiy/" target="_blank" class="account-button">
+            <span class="emoji">🗯️</span> Reddit
+          </a>
+          <a href="https://steamcommunity.com/profiles/76561199415839546" target="_blank" class="account-button">
+            <span class="emoji">🎮</span> Steam
+          </a>
+          <a href="https://vrchat.com/home/user/usr_fa6e084d-9235-4492-a748-78da4c5d7ada" target="_blank" class="account-button">
+            <span class="emoji">💬</span> VRChat
+          </a>
+          <a href="https://t.me/Cloakiy" target="_blank" class="account-button">
+            <span class="emoji">📨</span> Telegram
+          </a>
+        </div>
+      </div>
+
+      <div class="description">
+        <span class="emoji">🧑‍💼</span> tt_sino <span class="emoji">🫂</span> verpeiltes_leon <span class="emoji">😈</span> Neesou <br>
+        <span class="emoji">🫂</span> juniorwmg <span class="emoji">🐶</span> Teom <span class="emoji">🐾</span> herr_sparky <span class="emoji">🐾</span> janox4722 
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bubble">
+    <div class="footer-bubble-content">
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datennutzung</a>
+      <a href="/haftung/">Haftungsausschluss</a>
+      <a href="/discord-agb/">Discord-Regeln</a>
+    </div>
+  </div>
+
+<script>
+  const themeSwitcher = document.getElementById('themeSwitcher');
+  const body = document.body;
+
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  const savedTheme = getCookie('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    themeSwitcher.innerHTML = '<i>☀️</i>';
+  }
+
+  themeSwitcher.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    if (body.classList.contains('light-mode')) {
+      themeSwitcher.innerHTML = '<i>☀️</i>';
+      setCookie('theme', 'light', 365);
+    } else {
+      themeSwitcher.innerHTML = '<i>🌙</i>';
+      setCookie('theme', 'dark', 365);
+    }
+  });
+</script>
+</body>
+</html>

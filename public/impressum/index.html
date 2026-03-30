@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum</title>
+  <link rel="icon" href="Unbenannt.png" type="image/png">
+  <style>
+    :root {
+      --bg-gradient-start: #46535c;
+      --bg-gradient-end: #2c2c2c;
+      --profile-bg: rgba(0, 0, 0, 0.3);
+      --text-color: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: var(--profile-bg);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--text-color);
+    }
+
+    a {
+      color: #aad;
+      word-break: break-word;
+    }
+
+    ul {
+      line-height: 1.6;
+      padding-left: 1.2rem;
+    }
+
+    .footer-nav {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .footer-nav a {
+      color: #aad;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      html, body {
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .container {
+        padding: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Impressum</h2>
+
+    <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong></p>
+
+     <p><strong>Verantwortlich für diese Website:</strong><br>
+       Paul Häuser<br>
+       Eichenstraße 59<br>
+       07549 Gera<br>
+       Deutschland</p>
+
+    <p><strong>Kontakt:</strong><br>
+    E-Mail: <a href="mailto:owner@cloaki.de">Owner@cloaki.de</a></p>
+
+    <p><strong>Hinweis:</strong><br>
+    Für den Versand von Paketen oder physischen Anfragen bitten wir um vorherige Kontaktaufnahme per E-Mail. Die genannte Anschrift dient ausschließlich der Impressumspflicht und ist keine Absenderadresse für Rücksendungen oder Warenversand.</p>
+
+    <h2>Geltungsbereich</h2>
+    <p>Dieses Impressum gilt für die zentrale Website <a href="https://cloaki-studio.web.app/">cloaki-studio.web.app</a> sowie für sämtliche Onlinepräsenzen, die eindeutig auf diese Website verlinken oder als Teil meines privaten Netzwerks erkennbar sind, insbesondere:</p>
+    <ul>
+      <li>meinen YouTube-Kanal</li>
+      <li>meinen Twitch-Kanal</li>
+      <li>meinen Discord-Server</li>
+      <li>mein Steam-Profil</li>
+      <li>mein Epicgames-Profil</li>
+      <li>mein GitHub-Profil</li>
+      <li>mein Instagram-Profil</li>
+      <li>mein VRChat-Profil</li>
+    </ul>
+
+    <div class="footer-nav">
+      <a href="/datenschutz/">Datennutzung</a>
+      <a href="/haftung/">Haftungsausschluss</a>
+      <a href="/discord-agb/">Discord-Regeln</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Welt nicht gefunden</title>
+  <link rel="icon" href="/Unbenannt.png">
+  <style>
+    :root {
+      --bg-gradient-start: #0044ff;
+      --bg-gradient-end: #020081;
+      --profile-bg: rgba(0, 0, 0, 0.3);
+      --text-color: #fff;
+      --text-secondary: rgba(255, 255, 255, 0.85);
+      --role-bg: rgba(0, 0, 0, 0.4);
+      --role-border: rgba(0, 0, 0, 0.1);
+      
+      /* NEU: Farbe für den Character-Hintergrund rechts */
+      --char-box-bg: rgba(0, 247, 255, 0.4); /* Leuchtendes Cyan, halbtransparent */
+      --char-box-border: rgba(0, 247, 255, 0.6);
+      
+      /* WIEDER HERGESTELLT: Dezente Farben für den Menü-Button links */
+      --button-bg: rgba(0, 0, 0, 0.4);
+      --button-border: rgba(0, 0, 0, 0.15);
+      --button-hover-bg: rgba(0, 0, 0, 0.6);
+      
+      --description-bg: rgba(0, 0, 0, 0.25);
+      --description-border: rgba(0, 0, 0, 0.199);
+      --link-color: #ffd700;
+      --link-hover: #ffec8e;
+      --shadow-color: rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-color);
+      font-family: sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      background: var(--profile-bg);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px var(--shadow-color);
+      max-width: 900px;
+    }
+
+    .text-section {
+      max-width: 450px;
+    }
+
+    .text-section h1 {
+      font-size: 5rem;
+      margin: 0 0 1rem 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .text-section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .text-section p {
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* WIEDER HERGESTELLT: Dezentes Button-Styling links */
+    .button {
+      background: var(--button-bg);
+      border: 1px solid var(--button-border);
+      color: var(--text-color);
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: normal; /* Bold entfernt */
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: var(--button-hover-bg);
+      transform: translateY(-2px); /* Eleganter Hover-Effekt statt Zoom */
+    }
+
+    /* NEU: Hintergrund und Rahmen für das Character-Bild rechts */
+    .image-placeholder {
+      background: var(--char-box-bg);
+      border: 2px solid var(--char-box-border);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.2); /* Sanfter Glüh-Effekt */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Kleiner Effekt beim Drübergehen über den gesamten Kasten */
+    .image-placeholder:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 247, 255, 0.4);
+    }
+
+    .image-placeholder img {
+      max-width: 300px;
+      display: block; /* Verhindert Abstände unten */
+      border-radius: 10px;
+      cursor: pointer;
+      /* Box-shadow hier entfernt, da er jetzt auf dem Container ist */
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    footer a {
+      color: var(--link-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    /* --- EASTER EGG CSS --- */
+    .fly-up {
+      transform: translateY(-200vh);
+      opacity: 0;
+      transition: transform 1.5s ease-in-out, opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+
+    #skyblockImage.fall-and-flip {
+      position: fixed;
+      bottom: 20px;
+      left: 5%; 
+      transform: scaleX(-1); 
+      transition: all 1s ease-in-out;
+      z-index: 1000;
+      margin: 0;
+      max-width: 150px; 
+      box-shadow: none;
+    }
+
+    #skyblockImage.jumping {
+      animation: jumpAnim 0.5s; 
+    }
+
+    @keyframes jumpAnim {
+      0% { bottom: 20px; animation-timing-function: ease-out; }
+      45% { bottom: 260px; animation-timing-function: ease-in; }
+      100% { bottom: 20px; }
+    }
+
+    .obstacle {
+      position: fixed;
+      bottom: 20px;
+      right: -100px;
+      width: 70px; 
+      height: auto;
+      z-index: 999;
+    }
+
+    @keyframes moveObstacle {
+      0% { right: -100px; }
+      100% { right: 100vw; }
+    }
+
+    #scoreBoard {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      display: none; 
+      z-index: 1001;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scoreBoard">Score: 0</div>
+
+  <div class="main-wrapper">
+    <div class="main" id="mainBox">
+      <div class="text-section">
+        <h1>404</h1>
+        <h2>Ups! Du bist wohl im Nirgendwo gelandet.</h2>
+        <p>
+          Diese Welt existiert scheinbar nicht – oder sie hat einfach den falschen Chunk geladen.<br><br>
+          Vielleicht stehst du gerade auf einer einsamen Skyblock-Insel im leeren Nichts?<br>
+          Keine Sorge – mit einem Klick holen wir dich zurück auf festen Boden.
+        </p>
+        <button class="button" onclick="window.location.href='/'">Zurück zur Hauptseite</button>
+      </div>
+
+      <div class="image-placeholder">
+        <img src="/bilder/Untitled.webp" alt="Skyblock Welt" id="skyblockImage">
+      </div>
+    </div>
+  </div>
+
+  <footer id="mainFooter">
+    © 2025 Cloaki. Alle Rechte vorbehalten.<br><br>
+    <a href="/datenschutz">Datenschutz</a> · 
+    <a href="/impressum">Impressum</a>
+  </footer>
+
+  <script>
+    const img = document.getElementById('skyblockImage');
+    const mainBox = document.getElementById('mainBox');
+    const footer = document.getElementById('mainFooter');
+    const scoreBoard = document.getElementById('scoreBoard');
+    
+    let isGameRunning = false;
+    let isJumping = false;
+    let score = 0;
+
+    img.addEventListener('click', (e) => {
+      if(isGameRunning) return; 
+      e.stopPropagation(); 
+      isGameRunning = true;
+
+      const rect = img.getBoundingClientRect();
+      img.style.left = rect.left + 'px';
+      img.style.top = rect.top + 'px';
+      img.style.position = 'fixed';
+      img.style.transition = 'all 1s ease-in-out';
+      document.body.appendChild(img);
+
+      setTimeout(() => {
+        mainBox.classList.add('fly-up');
+        footer.classList.add('fly-up');
+
+        img.style.top = 'auto'; 
+        img.classList.add('fall-and-flip');
+      }, 50);
+
+      setTimeout(() => {
+        img.src = '/bilder/Unguzfuhrled.webp'; 
+        img.style.transition = 'none'; 
+        
+        scoreBoard.style.display = 'block';
+        startGame();
+      }, 1050);
+    });
+
+    function triggerJump(e) {
+      if (e && e.cancelable) {
+        e.preventDefault(); 
+      }
+
+      if (!isJumping && isGameRunning) {
+        isJumping = true;
+        img.classList.add('jumping');
+        
+        setTimeout(() => {
+          img.classList.remove('jumping');
+          isJumping = false;
+        }, 500); 
+      }
+    }
+
+    function startGame() {
+      document.addEventListener('mousedown', triggerJump);
+      document.addEventListener('touchstart', triggerJump, {passive: false});
+
+      spawnObstacle();
+    }
+
+    function spawnObstacle() {
+      if(!isGameRunning) return;
+
+      const obstacle = document.createElement('img');
+      obstacle.src = '/bilder/Cookie_JE2_BE2.webp'; 
+      obstacle.classList.add('obstacle');
+      document.body.appendChild(obstacle);
+
+      const speed = Math.random() * 1.2 + 1.2; 
+      obstacle.style.animation = `moveObstacle ${speed}s linear`;
+
+      let passed = false;
+
+      const checkCollision = setInterval(() => {
+        const playerRect = img.getBoundingClientRect();
+        const obsRect = obstacle.getBoundingClientRect();
+        
+        const hitToleranceX = 25; 
+        const hitToleranceY = 15;
+
+        if (
+          playerRect.right - hitToleranceX > obsRect.left &&
+          playerRect.left + hitToleranceX < obsRect.right &&
+          playerRect.bottom - hitToleranceY > obsRect.top &&
+          playerRect.top + hitToleranceY < obsRect.bottom
+        ) {
+          clearInterval(checkCollision);
+          isGameRunning = false;
+          alert(`Game Over! Du hast ${score} Cookies übersprungen. Die Seite wird neu geladen.`);
+          location.reload(); 
+        }
+
+        if (!passed && obsRect.right < playerRect.left) {
+          passed = true;
+          score++;
+          scoreBoard.innerText = `Score: ${score}`;
+        }
+      }, 10);
+
+      setTimeout(() => {
+        if(document.body.contains(obstacle)) {
+          obstacle.remove();
+        }
+        clearInterval(checkCollision);
+        
+        if(isGameRunning) {
+           setTimeout(spawnObstacle, Math.random() * 1500 + 600); 
+        }
+      }, speed * 1000);
+    }
+  </script>
+</body>
+</html>
