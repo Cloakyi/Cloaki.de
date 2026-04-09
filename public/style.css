@@ -1,49 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
-  /* DARK MODE FARBEN */
   --bg-gradient-start: #0044ff;
   --bg-gradient-end: #020081;
   --profile-bg: rgba(0, 0, 0, 0.4);
+  --modal-bg: rgba(0, 0, 0, 0.45);
   --text-color: #fff;
-  --text-secondary: rgba(255, 255, 255, 0.85);
-  --role-bg: rgba(0, 0, 0, 0.5);
+  --text-secondary: rgba(255, 255, 255, 0.65); /* Etwas dezenter für die Labels */
+  --role-bg: rgba(255, 255, 255, 0.05); /* Subtilerer Glas-Look für die Rollen */
   --role-border: rgba(255, 255, 255, 0.1);
-  --button-bg: rgba(0, 0, 0, 0.4);
+  --button-bg: rgba(0, 0, 0, 0.5);
   --button-border: rgba(255, 255, 255, 0.1);
   --button-hover-bg: rgba(255, 255, 255, 0.15);
-  --description-bg: rgba(0, 0, 0, 0.3);
+  --button-glow: 0 4px 12px rgba(0, 255, 255, 0.15); /* Weicherer, weniger aggressiver Glow im Dark Mode */
+  --description-bg: rgba(0, 0, 0, 0.5);
   --card-border: rgba(255, 255, 255, 0.1);
-  --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  --avatar-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  --card-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+  --avatar-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   --footer-link-color: #00ffff;
-  --modal-bg: rgba(10, 10, 25, 0.85);
 }
 
 .light-mode {
-  /* LIGHT MODE FARBEN - Optimiert für besseren Kontrast */
-  --bg-gradient-start: #b3d4ff; 
-  --bg-gradient-end: #d6f0ff;
-  --profile-bg: rgba(255, 255, 255, 0.65); /* Milchigeres Weiß für Glas-Effekt */
+  --bg-gradient-start: #8ab4f8; 
+  --bg-gradient-end: #d2e3fc;
+  --profile-bg: rgba(255, 255, 255, 0.45);
+  --modal-bg: rgba(255, 255, 255, 0.55);
   --text-color: #222;
-  --text-secondary: #444;
-  --role-bg: rgba(255, 255, 255, 0.8);
-  --role-border: rgba(0, 0, 0, 0.1);
-  --button-bg: rgba(255, 255, 255, 0.6);
-  --button-border: rgba(0, 0, 0, 0.1);
+  --text-secondary: #666;
+  --role-bg: rgba(255, 255, 255, 0.6);
+  --role-border: rgba(0, 0, 0, 0.05);
+  --button-bg: rgba(255, 255, 255, 0.85);
+  --button-border: rgba(255, 255, 255, 1);
   --button-hover-bg: #fff;
+  --button-glow: 0 4px 16px rgba(255, 255, 255, 1);
   --description-bg: rgba(255, 255, 255, 0.5);
-  --card-border: rgba(255, 255, 255, 0.6);
-  --card-shadow: 0 15px 35px rgba(0, 0, 50, 0.15); /* Physische Distanz zum Hintergrund */
-  --avatar-shadow: 0 10px 25px rgba(0, 0, 50, 0.2);
+  --card-border: rgba(255, 255, 255, 0.8);
+  --card-shadow: 0 16px 32px rgba(0, 0, 50, 0.1);
+  --avatar-shadow: 0 8px 24px rgba(0, 0, 50, 0.2);
   --footer-link-color: #0033aa;
-  --modal-bg: rgba(240, 245, 255, 0.85);
 }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  /* Premium Gradient Winkel 135deg */
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   background-attachment: fixed;
   color: var(--text-color);
@@ -51,122 +58,195 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 24px;
   box-sizing: border-box;
 }
 
-/* Organische Schriftart für Namen und Überschriften */
-.username, h1, h2, h3 {
+.username, h1, h2, h3, .account-button, .friend-item {
   font-family: 'Fredoka', sans-serif;
 }
 
-/* CONTAINER (Glassmorphism) */
+/* CONTAINER */
 .profile-container {
   max-width: 650px;
   width: 100%;
   background: var(--profile-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 25px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
   position: relative;
-  margin-top: 50px;
+  margin-top: 48px;
   box-shadow: var(--card-shadow);
   overflow: visible;
   border: 1px solid var(--card-border);
 }
 
+/* BANNER */
 .banner {
   width: 100%;
   height: 180px;
+  position: relative;
+  border-radius: 23px 23px 0 0; /* 1px weniger als Container für perfekten Sitz */
   overflow: hidden;
-  border-radius: 25px 25px 0 0;
 }
-.banner img { width: 100%; height: 100%; object-fit: cover; }
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.banner-img.loaded {
+  opacity: 1;
+}
 
-/* AVATAR - Organische Integration ohne harten Rand */
-.avatar {
+/* AVATAR (Größer, Bugfix für Ränder) */
+.avatar-container {
   position: absolute;
-  top: 120px;
-  right: 30px;
-  width: 120px;
-  height: 120px;
+  top: 110px; /* Leicht nach oben korrigiert für die neue Größe */
+  right: 32px;
+  width: 140px; /* Vergrößert, schließt den Hohlraum rechts */
+  height: 140px;
   border-radius: 50%;
   z-index: 10;
-  box-shadow: var(--avatar-shadow); /* Ersetzt die harte Border */
-  background: transparent;
+  box-shadow: var(--avatar-shadow);
+  overflow: hidden;
+  /* Kein Background hier, verhindert den feinen Rand-Bug */
 }
-.avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.avatar-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.avatar-img.loaded {
+  opacity: 1;
+}
 
-.profile-content { padding: 30px; }
+/* SHIMMER ANIMATION */
+.skeleton-shimmer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--button-bg); /* Hintergrundfarbe nur für den Skeleton-State */
+  z-index: 1;
+}
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.5s infinite;
+}
+.light-mode .skeleton-shimmer::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+}
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* INHALT & ABSTÄNDE */
+.profile-content { padding: 32px; }
 .profile-info { display: flex; flex-direction: column; align-items: flex-start; }
 
-.username { font-size: 36px; font-weight: 600; margin-bottom: 5px; letter-spacing: 1px; }
-.pronouns { font-size: 15px; opacity: 0.9; margin-bottom: 20px; }
+.username { font-size: 34px; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px; }
+.pronouns { font-size: 16px; opacity: 0.9; margin-bottom: 28px; }
 
-.role-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-.role-tags span {
-  background: var(--role-bg);
-  border: 1px solid var(--role-border);
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 13px;
+/* DEZENTE KATEGORIE-LABELS (Behebt den "fragwürdigen" Look) */
+.roles-title { 
+  font-size: 13px; 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
+/* Symmetrischer Abstand vor der Links-Kategorie */
+.links-title-container {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.role-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+.role-tags span {
+  background: var(--role-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--role-border);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* BUTTONS (Kompakter) */
 .accounts {
-  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px; /* Etwas näher zusammen */
   width: 100%;
 }
 .account-button {
   background: var(--button-bg);
   border: 1px solid var(--button-border);
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 16px;
   color: var(--text-color);
   text-decoration: none !important;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
-  transition: 0.3s ease;
+  font-size: 15px; /* Etwas größer für bessere Lesbarkeit */
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
-.account-button:hover { background: var(--button-hover-bg); transform: translateY(-2px); }
+.account-button:hover { 
+  background: var(--button-hover-bg); 
+  transform: translateY(-2px); 
+  box-shadow: var(--button-glow); 
+}
 
-/* FREUNDESLISTE - Kein Zeilenumbruch mehr in Namen */
+/* FREUNDESLISTE */
 .description {
-  padding: 25px;
+  padding: 24px;
   background: var(--description-bg);
   border-top: 1px solid var(--card-border);
-  border-radius: 0 0 25px 25px;
+  border-radius: 0 0 24px 24px;
   text-align: center;
-  line-height: 2;
-  margin-top: 20px;
+  line-height: 2.2; /* Mehr Abstand zwischen den Zeilen für Lesbarkeit */
+  margin-top: 32px;
+  font-size: 16px;
 }
 .friend-item {
   display: inline-block;
   white-space: nowrap;
-  margin: 0 6px;
+  margin: 0 10px;
 }
 
-.footer-bubble { margin-top: 40px; padding: 20px; text-align: center; }
+.footer-bubble { margin-top: 48px; padding: 24px; text-align: center; }
 .footer-bubble-content a, .footer-bubble-content span {
   color: var(--footer-link-color);
   text-decoration: none;
-  margin: 0 12px;
+  margin: 0 16px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
 }
 .footer-bubble-content a:hover, .footer-bubble-content span:hover { text-decoration: underline; }
 
 .theme-switcher {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 45px;
-  height: 45px;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
   background: var(--profile-bg);
   border: 1px solid var(--button-border);
   border-radius: 50%;
@@ -175,14 +255,14 @@ body {
   justify-content: center;
   cursor: pointer;
   z-index: 1000;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
 }
 
-/* PREMIUM MODAL / POP-UP STYLES */
+/* MODALS (Popups) */
 .modal {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -190,39 +270,50 @@ body {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 2000;
-  padding: 20px;
+  padding: 24px;
   box-sizing: border-box;
+  overscroll-behavior: contain;
 }
 .modal.active { opacity: 1; visibility: visible; }
 
 .modal-content {
-  background: var(--modal-bg);
+  background: var(--modal-bg); 
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   width: 100%;
   max-width: 650px;
   max-height: 85vh;
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 24px;
+  padding: 32px;
   overflow-y: auto;
   position: relative;
   transform: scale(0.95);
   transition: transform 0.3s ease;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
   border: 1px solid var(--card-border);
   color: var(--text-color);
+  overscroll-behavior: contain;
 }
 .modal.active .modal-content { transform: scale(1); }
 
-.modal-content h2, .modal-content h3 { margin-top: 1.5rem; }
+.modal-content::-webkit-scrollbar { width: 8px; }
+.modal-content::-webkit-scrollbar-track { background: transparent; margin: 16px 0; }
+.modal-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 16px; }
+.modal-content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+.light-mode .modal-content::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
+.light-mode .modal-content::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.3); }
+
+.modal-content h2, .modal-content h3 { margin-top: 24px; }
 .modal-content p, .modal-content li { line-height: 1.7; color: var(--text-secondary); }
 .modal-content a { color: var(--footer-link-color); text-decoration: underline; cursor: pointer; }
 
 .close-modal {
   position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 28px;
+  top: 24px;
+  right: 24px;
+  font-size: 32px;
   font-weight: bold;
   cursor: pointer;
   color: var(--text-secondary);
@@ -231,8 +322,8 @@ body {
 .close-modal:hover { color: var(--text-color); transform: scale(1.1); }
 
 @media (max-width: 600px) {
-  .avatar { position: relative; top: -60px; right: auto; margin: 0 auto -40px; }
+  .avatar-container { position: relative; top: -70px; right: auto; margin: 0 auto -50px; }
   .profile-info { align-items: center; text-align: center; }
   .accounts { grid-template-columns: 1fr; }
-  .footer-bubble-content a, .footer-bubble-content span { display: block; margin: 10px 0; }
+  .footer-bubble-content a, .footer-bubble-content span { display: block; margin: 16px 0; }
 }

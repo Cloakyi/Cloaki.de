@@ -25,12 +25,14 @@
   </div>
 
   <div class="profile-container">
-    <div class="banner">
-      <img src="bilder/VRChat_coed.webp" alt="Profil-Banner">
+    <div class="banner" id="bannerContainer">
+      <div class="skeleton-shimmer" id="bannerShimmer"></div>
+      <img src="bilder/VRChat_coed.webp" alt="Profil-Banner" class="banner-img" id="bannerImage">
     </div>
 
-    <div class="avatar">
-      <img src="bilder/Cloaki-Profiel-1x1.webp" alt="Avatar">
+    <div class="avatar-container" id="avatarContainer">
+      <div class="skeleton-shimmer" id="avatarShimmer"></div>
+      <img src="bilder/Cloaki-Profiel-1x1.webp" alt="Avatar" class="avatar-img" id="avatarImage">
     </div>
 
     <div class="profile-content">
@@ -47,7 +49,7 @@
         </div>
 
         <div class="links-title-container">
-          <div class="roles-title" style="margin-top: 15px;">Persönliche Links</div>
+          <div class="roles-title">Persönliche Links</div>
         </div>
 
         <div class="accounts">
@@ -82,7 +84,8 @@
       <span class="modal-link" data-target="modal-impressum">Impressum</span>
       <span class="modal-link" data-target="modal-datenschutz">Datennutzung</span>
       <span class="modal-link" data-target="modal-haftung">Haftungsausschluss</span>
-      <a href="/discord-agb/">Discord-Regeln</a> </div>
+      <a href="/discord-agb/">Discord-Regeln</a>
+    </div>
   </div>
 
   <div id="modal-impressum" class="modal">
@@ -93,7 +96,7 @@
       <p>Paul Häuser<br>Eichenstraße 59<br>07549 Gera<br>Deutschland</p>
       <p><strong>Kontakt:</strong><br>E-Mail: <a href="mailto:owner@cloaki.de">Owner@cloaki.de</a></p>
       <p><strong>Hinweis:</strong><br>Für den Versand von Paketen oder physischen Anfragen bitten wir um vorherige Kontaktaufnahme per E-Mail. Die genannte Anschrift dient ausschließlich der Impressumspflicht und ist keine Absenderadresse für Rücksendungen oder Warenversand.</p>
-      <hr style="border: 0; border-top: 1px solid rgba(128,128,128,0.3); margin: 20px 0;">
+      <hr style="border: 0; border-top: 1px solid rgba(128,128,128,0.3); margin: 24px 0;">
       <h3>Geltungsbereich</h3>
       <p>Dieses Impressum gilt für die Website <strong>cloaki-studio.web.app</strong>, <strong>cloaki.de</strong> sowie für sämtliche Onlinepräsenzen, die eindeutig auf diese Website verlinken oder als Teil meines privaten Netzwerks erkennbar sind, insbesondere:</p>
       <ul style="list-style-position: inside; padding-left: 0;">
@@ -157,7 +160,8 @@
       <p><strong>Stand:</strong> Aktualisiert: 22. Februar 2026</p>
     </div>
   </div>
-  <script>
+
+<script>
   // Theme Logik
   const themeSwitcher = document.getElementById('themeSwitcher');
   const body = document.body;
@@ -200,56 +204,73 @@
     }
   });
 
-  // Modal (Pop-up) Logik & automatische URL Erkennung
+  // Modal Logik & URL Erkennung
   const modals = document.querySelectorAll('.modal');
   const modalLinks = document.querySelectorAll('.modal-link');
   const closeBtns = document.querySelectorAll('.close-modal');
 
   function openModal(id) {
-    modals.forEach(m => m.classList.remove('active')); // Alle schließen
+    modals.forEach(m => m.classList.remove('active'));
     const modal = document.getElementById(id);
     if(modal) {
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Scrollen im Hintergrund blockieren
+      document.body.style.overflow = 'hidden'; 
     }
   }
 
   function closeModal() {
     modals.forEach(m => m.classList.remove('active'));
     document.body.style.overflow = '';
-    history.replaceState(null, null, window.location.pathname); // # aus der URL entfernen beim Schließen
+    history.replaceState(null, null, window.location.pathname);
   }
 
-  // Klick auf Footer-Links oder Links in den Texten
   modalLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = link.getAttribute('data-target');
       openModal(target);
-      window.location.hash = target.replace('modal-', ''); // URL anpassen
+      window.location.hash = target.replace('modal-', '');
     });
   });
 
-  // Klick auf das X
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', closeModal);
-  });
-
-  // Klick neben das Fenster (Hintergrund)
+  closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
   window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-      closeModal();
-    }
+    if (e.target.classList.contains('modal')) closeModal();
   });
 
-  // Prüfen, ob jemand mit einem Link (z.B. deinedomain.de/#datenschutz) auf die Seite kommt
   window.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash) {
       const hash = window.location.hash.substring(1);
-      const targetId = 'modal-' + hash;
-      openModal(targetId);
+      openModal('modal-' + hash);
     }
   });
+
+  // Dynamische Skeleton Animation für Banner & Avatar
+  function revealElement(imgElem, shimmerElem) {
+    imgElem.classList.add('loaded');
+    setTimeout(() => {
+      if (shimmerElem) shimmerElem.style.display = 'none';
+    }, 600);
+  }
+
+  function handleImageLoad(imgElem, shimmerElem, sessionKey) {
+    if (!sessionStorage.getItem(sessionKey)) {
+      sessionStorage.setItem(sessionKey, 'true');
+      setTimeout(() => revealElement(imgElem, shimmerElem), 1800); 
+    } else {
+      revealElement(imgElem, shimmerElem);
+    }
+  }
+
+  const avatarImg = document.getElementById('avatarImage');
+  const avatarShimmer = document.getElementById('avatarShimmer');
+  if (avatarImg.complete) handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession');
+  else avatarImg.addEventListener('load', () => handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession'));
+
+  const bannerImg = document.getElementById('bannerImage');
+  const bannerShimmer = document.getElementById('bannerShimmer');
+  if (bannerImg.complete) handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession');
+  else bannerImg.addEventListener('load', () => handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession'));
 </script>
 </body>
 </html>
