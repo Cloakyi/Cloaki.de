@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/Unbenannt.png">
+  <link rel="icon" type="image/png" href="/bilder/Profile.webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discord-Regeln (kurz)</title>
   <script src="/domain-guard.js"></script>
@@ -33,6 +34,7 @@
     import '@material/web/divider/divider.js';
   </script>
 </head>
+
 <body>
   <script>
     if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
@@ -73,7 +75,8 @@
 
   <div class="subpage-container">
     <h2><md-icon>description</md-icon> Discord-Regeln (kurz)</h2>
-    <p>Diese Regeln gelten für alle Mitglieder und sorgen für ein respektvolles und sicheres Miteinander. Mit dem Beitritt akzeptierst du sie.</p>
+    <p>Diese Regeln gelten für alle Mitglieder und sorgen für ein respektvolles und sicheres Miteinander. Mit dem
+      Beitritt akzeptierst du sie.</p>
 
     <h3><md-icon>balance</md-icon> 1. Verhalten</h3>
     <ul>
@@ -118,7 +121,8 @@
     <md-divider></md-divider>
 
     <h3><md-icon>star</md-icon> Zum Schluss</h3>
-    <p>Habt Spaß, seid nett zueinander und macht diesen Server zu einem tollen Ort! <md-icon style="font-size: 18px; color: #ffb74d;">favorite</md-icon></p>
+    <p>Habt Spaß, seid nett zueinander und macht diesen Server zu einem tollen Ort! <md-icon
+        style="font-size: 18px; color: #ffb74d;">favorite</md-icon></p>
 
     <div class="footer-nav">
       <a href="/impressum/">Impressum</a>
@@ -133,7 +137,7 @@
 
   <script>
     // Theme vom Cookie übernehmen
-    (function() {
+    (function () {
       var value = '; ' + document.cookie;
       var parts = value.split('; theme=');
       if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
@@ -142,4 +146,5 @@
     })();
   </script>
 </body>
+
 </html>

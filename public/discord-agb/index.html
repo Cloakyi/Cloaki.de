@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discord-Regeln - Cloaki</title>
   <script src="/domain-guard.js"></script>
   <script src="/grainient-bg.js" defer></script>
-  <link rel="icon" type="image/png" href="../Unbenannt.png">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" href="/bilder/Profile.webp">
+  <link rel="stylesheet" href="/style.css">
 
   <!-- Import Map for @material/web ES modules -->
   <script type="importmap">
@@ -33,6 +34,7 @@
     import '@material/web/ripple/ripple.js';
   </script>
 </head>
+
 <body>
   <script>
     if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
@@ -72,7 +74,8 @@
 
   <div class="profile-container">
     <div class="profile-content" style="text-align: center;">
-      <h1><md-icon style="font-size: 32px; --md-icon-size: 32px; vertical-align: middle;">menu_book</md-icon> Discord-Regeln</h1>
+      <h1><md-icon style="font-size: 32px; --md-icon-size: 32px; vertical-align: middle;">menu_book</md-icon>
+        Discord-Regeln</h1>
       <p>Wähle eine Version der Regeln aus:</p>
 
       <div class="accounts" style="margin-bottom: 20px;">
@@ -103,7 +106,7 @@
 
   <script>
     // Theme vom Cookie übernehmen
-    (function() {
+    (function () {
       var value = '; ' + document.cookie;
       var parts = value.split('; theme=');
       if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
@@ -112,4 +115,5 @@
     })();
   </script>
 </body>
+
 </html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discord-Serverregeln</title>
   <script src="/domain-guard.js"></script>
   <script src="/grainient-bg.js" defer></script>
-  <link rel="icon" href="/Unbenannt.png" type="image/png">
+  <link rel="icon" href="/bilder/Profile.webp" type="image/png">
   <link rel="stylesheet" href="/style.css">
 
   <!-- Import Map for @material/web ES modules -->
@@ -33,6 +34,7 @@
     import '@material/web/divider/divider.js';
   </script>
 </head>
+
 <body>
   <script>
     if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
@@ -159,7 +161,7 @@
 
   <script>
     // Theme vom Cookie übernehmen
-    (function() {
+    (function () {
       var value = '; ' + document.cookie;
       var parts = value.split('; theme=');
       if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
@@ -168,4 +170,5 @@
     })();
   </script>
 </body>
+
 </html>
