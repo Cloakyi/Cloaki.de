@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discord-Regeln - Cloaki</title>
+  <script src="/domain-guard.js"></script>
+  <script src="/grainient-bg.js" defer></script>
   <link rel="icon" type="image/png" href="../Unbenannt.png">
   <link rel="stylesheet" href="../style.css">
 
@@ -32,15 +34,45 @@
   </script>
 </head>
 <body>
-  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln">
-    <md-icon-button id="themeBtn" aria-label="Theme wechseln">
-      <md-icon id="themeIcon">dark_mode</md-icon>
+  <script>
+    if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
+    const a11yMode = localStorage.getItem('cloaki_a11y_mode');
+    if (a11yMode && a11yMode !== 'normal') document.documentElement.classList.add('a11y-mode-' + a11yMode);
+    const a11yZoom = localStorage.getItem('cloaki_a11y_zoom');
+    if (a11yZoom) document.body.style.zoom = a11yZoom / 100;
+  </script>
+  <div id="global-loader">
+    <div class="loader-logo"></div>
+  </div>
+  <svg id="a11y-svg-filters" aria-hidden="true" style="width:0;height:0;position:absolute;">
+    <filter id="filter-protanopia">
+      <feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="filter-deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="filter-tritanopia">
+      <feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0" />
+    </filter>
+  </svg>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('global-loader');
+        if (loader) loader.classList.add('hidden');
+      }, 150);
+    });
+  </script>
+  <div class="subpage-nav">
+    <md-icon-button aria-label="Zurück zur Hauptseite" onclick="window.location.href='/'">
+      <md-icon>arrow_back</md-icon>
     </md-icon-button>
+    <div></div>
   </div>
 
   <div class="profile-container">
     <div class="profile-content" style="text-align: center;">
-      <h1><md-icon style="font-size: 32px; vertical-align: middle;">menu_book</md-icon> Discord-Regeln</h1>
+      <h1><md-icon style="font-size: 32px; --md-icon-size: 32px; vertical-align: middle;">menu_book</md-icon> Discord-Regeln</h1>
       <p>Wähle eine Version der Regeln aus:</p>
 
       <div class="accounts" style="margin-bottom: 20px;">
@@ -57,7 +89,7 @@
 
     <div class="description">
       <div class="footer-bubble-content">
-        <a href="/">Zurück</a>
+
         <a href="../impressum/">Impressum</a>
         <a href="../datenschutz/">Datenschutz</a>
         <a href="../haftung/">Haftung</a>
@@ -65,25 +97,19 @@
     </div>
   </div>
 
+  <script src="/legal-modals.js" defer></script>
+  <script src="/cookie-banner.js" defer></script>
+  <script src="/accessibility.js" defer></script>
+
   <script>
-    const themeSwitcher = document.getElementById('themeSwitcher');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-    if (getCookie('theme') === 'light') {
-      body.classList.add('light-mode');
-      if (themeIcon) themeIcon.textContent = 'light_mode';
-    }
-    themeSwitcher.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      const isLight = body.classList.contains('light-mode');
-      if (themeIcon) themeIcon.textContent = isLight ? 'light_mode' : 'dark_mode';
-      document.cookie = "theme=" + (isLight ? "light" : "dark") + "; path=/; max-age=31536000";
-    });
+    // Theme vom Cookie übernehmen
+    (function() {
+      var value = '; ' + document.cookie;
+      var parts = value.split('; theme=');
+      if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    })();
   </script>
 </body>
 </html>

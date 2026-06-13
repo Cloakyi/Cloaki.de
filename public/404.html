@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 – Welt nicht gefunden</title>
+  <script src="/domain-guard.js"></script>
+  <script src="/grainient-bg.js" defer></script>
   <link rel="icon" href="/Unbenannt.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+  <link rel="stylesheet" href="/style.css">
 
   <!-- Import Map for @material/web ES modules -->
   <script type="importmap">
@@ -29,219 +30,52 @@
   <script type="module">
     import '@material/web/button/filled-tonal-button.js';
     import '@material/web/icon/icon.js';
+    import '@material/web/iconbutton/icon-button.js';
   </script>
-
-  <style>
-    :root {
-      --bg-gradient-start: #0044ff;
-      --bg-gradient-end: #020081;
-      --profile-bg: rgba(17, 19, 24, 0.75);
-      --text-color: #e2e2e6;
-      --text-secondary: rgba(226, 226, 230, 0.75);
-      --role-bg: rgba(0, 0, 0, 0.4);
-      --role-border: rgba(0, 0, 0, 0.1);
-      --char-box-bg: rgba(0, 247, 255, 0.25);
-      --char-box-border: rgba(0, 247, 255, 0.4);
-      --button-bg: rgba(160, 196, 255, 0.15);
-      --button-border: rgba(160, 196, 255, 0.2);
-      --button-hover-bg: rgba(160, 196, 255, 0.25);
-      --description-bg: rgba(0, 0, 0, 0.25);
-      --description-border: rgba(0, 0, 0, 0.199);
-      --link-color: #a0c4ff;
-      --link-hover: #d1e4ff;
-      --shadow-color: rgba(0, 0, 0, 0.5);
-
-      /* M3 Shape */
-      --md-sys-shape-corner-medium: 12px;
-      --md-sys-shape-corner-large: 16px;
-      --md-sys-shape-corner-extra-large: 28px;
-
-      /* M3 Motion */
-      --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-      --md-sys-motion-duration-medium: 300ms;
-    }
-
-    body {
-      background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
-      color: var(--text-color);
-      font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .main-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .main {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      background: var(--profile-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 48px;
-      border-radius: var(--md-sys-shape-corner-extra-large);
-      box-shadow: 0 2px 6px rgba(0,0,0,.15), 0 8px 24px rgba(0,0,0,.2);
-      max-width: 900px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .text-section {
-      max-width: 450px;
-    }
-
-    .text-section h1 {
-      font-family: 'Fredoka', 'Google Sans', sans-serif;
-      font-size: 5rem;
-      margin: 0 0 1rem 0;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-      letter-spacing: -1px;
-    }
-
-    .text-section h2 {
-      font-family: 'Google Sans', 'Fredoka', sans-serif;
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0;
-    }
-
-    .text-section p {
-      line-height: 1.7;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    /* M3 Filled Tonal Button Theming */
-    md-filled-tonal-button {
-      --md-filled-tonal-button-container-color: rgba(160, 196, 255, 0.2);
-      --md-filled-tonal-button-label-text-color: #a0c4ff;
-      --md-filled-tonal-button-hover-label-text-color: #d1e4ff;
-      --md-filled-tonal-button-container-shape: var(--md-sys-shape-corner-medium);
-      margin-top: 1rem;
-      font-family: 'Google Sans', sans-serif;
-    }
-
-    .image-placeholder {
-      background: var(--char-box-bg);
-      border: 1px solid var(--char-box-border);
-      padding: 24px;
-      border-radius: var(--md-sys-shape-corner-large);
-      box-shadow: 0 0 20px rgba(0, 247, 255, 0.15);
-      transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-                  box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-    }
-
-    .image-placeholder:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
-    }
-
-    .image-placeholder img {
-      max-width: 300px;
-      display: block;
-      border-radius: var(--md-sys-shape-corner-medium);
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: rgba(0, 0, 0, 0.1);
-      text-align: center;
-      padding: 24px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-family: 'Google Sans Text', sans-serif;
-    }
-
-    footer a {
-      color: var(--link-color);
-      text-decoration: none;
-      margin: 0 0.5rem;
-      transition: color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
-    }
-
-    footer a:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
-
-    /* --- EASTER EGG CSS --- */
-    .fly-up {
-      transform: translateY(-200vh);
-      opacity: 0;
-      transition: transform 1.5s ease-in-out, opacity 1s ease-in-out;
-      pointer-events: none;
-    }
-
-    #skyblockImage.fall-and-flip {
-      position: fixed;
-      bottom: 20px;
-      left: 5%;
-      transform: scaleX(-1);
-      transition: all 1s ease-in-out;
-      z-index: 1000;
-      margin: 0;
-      max-width: 150px;
-      box-shadow: none;
-    }
-
-    #skyblockImage.jumping {
-      animation: jumpAnim 0.5s;
-    }
-
-    @keyframes jumpAnim {
-      0% { bottom: 20px; animation-timing-function: ease-out; }
-      45% { bottom: 260px; animation-timing-function: ease-in; }
-      100% { bottom: 20px; }
-    }
-
-    .obstacle {
-      position: fixed;
-      bottom: 20px;
-      right: -100px;
-      width: 70px;
-      height: auto;
-      z-index: 999;
-    }
-
-    @keyframes moveObstacle {
-      0% { right: -100px; }
-      100% { right: 100vw; }
-    }
-
-    #scoreBoard {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      font-size: 2.5rem;
-      font-weight: bold;
-      font-family: 'Fredoka', sans-serif;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-      display: none;
-      z-index: 1001;
-      pointer-events: none;
-    }
-  </style>
 </head>
 <body>
+  <script>
+    if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
+    const a11yMode = localStorage.getItem('cloaki_a11y_mode');
+    if (a11yMode && a11yMode !== 'normal') document.documentElement.classList.add('a11y-mode-' + a11yMode);
+    const a11yZoom = localStorage.getItem('cloaki_a11y_zoom');
+    if (a11yZoom) document.body.style.zoom = a11yZoom / 100;
+  </script>
+  <div id="global-loader">
+    <div class="loader-logo"></div>
+  </div>
+  <svg id="a11y-svg-filters" aria-hidden="true" style="width:0;height:0;position:absolute;">
+    <filter id="filter-protanopia">
+      <feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="filter-deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="filter-tritanopia">
+      <feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0" />
+    </filter>
+  </svg>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('global-loader');
+        if (loader) loader.classList.add('hidden');
+      }, 150);
+    });
+  </script>
+
+  <div class="subpage-nav">
+    <md-icon-button aria-label="Zurück zur Hauptseite" onclick="window.location.href='/'">
+      <md-icon>home</md-icon>
+    </md-icon-button>
+    <div></div>
+  </div>
 
   <div id="scoreBoard">Score: 0</div>
 
-  <div class="main-wrapper">
-    <div class="main" id="mainBox">
-      <div class="text-section">
+  <div class="error-wrapper">
+    <div class="error-card" id="mainBox">
+      <div class="error-text">
         <h1>404</h1>
         <h2>Ups! Du bist wohl im Nirgendwo gelandet.</h2>
         <p>
@@ -255,19 +89,35 @@
         </md-filled-tonal-button>
       </div>
 
-      <div class="image-placeholder">
+      <div class="error-image-box">
         <img src="/bilder/Untitled.webp" alt="Skyblock Welt" id="skyblockImage">
       </div>
     </div>
   </div>
 
-  <footer id="mainFooter">
+  <footer class="error-footer" id="mainFooter">
     © 2025 Cloaki. Alle Rechte vorbehalten.<br><br>
     <a href="/datenschutz">Datenschutz</a> ·
     <a href="/impressum">Impressum</a>
   </footer>
 
+  <script src="/legal-modals.js" defer></script>
+  <script src="/cookie-banner.js" defer></script>
+  <script src="/accessibility.js" defer></script>
+
   <script>
+    // Theme vom Cookie übernehmen
+    (function() {
+      var value = '; ' + document.cookie;
+      var parts = value.split('; theme=');
+      if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    })();
+  </script>
+
+  <script>
+    // Easter Egg
     const img = document.getElementById('skyblockImage');
     const mainBox = document.getElementById('mainBox');
     const footer = document.getElementById('mainFooter');
