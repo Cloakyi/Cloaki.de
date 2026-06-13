@@ -6,23 +6,51 @@
   <title>Discord-Regeln - Cloaki</title>
   <link rel="icon" type="image/png" href="../Unbenannt.png">
   <link rel="stylesheet" href="../style.css">
+
+  <!-- Import Map for @material/web ES modules -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "/lib/@material/web/",
+      "@lit/reactive-element": "/lib/@lit/reactive-element/reactive-element.js",
+      "@lit/reactive-element/": "/lib/@lit/reactive-element/",
+      "@lit-labs/ssr-dom-shim": "/lib/@lit-labs/ssr-dom-shim/index.js",
+      "lit": "/lib/lit/index.js",
+      "lit/": "/lib/lit/",
+      "lit-html": "/lib/lit-html/lit-html.js",
+      "lit-html/": "/lib/lit-html/",
+      "lit-element/": "/lib/lit-element/",
+      "lit-element": "/lib/lit-element/index.js",
+      "tslib": "/lib/tslib/tslib.es6.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/icon/icon.js';
+    import '@material/web/iconbutton/icon-button.js';
+    import '@material/web/ripple/ripple.js';
+  </script>
 </head>
 <body>
-  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln" role="button">
-    <i>🌙</i>
+  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln">
+    <md-icon-button id="themeBtn" aria-label="Theme wechseln">
+      <md-icon id="themeIcon">dark_mode</md-icon>
+    </md-icon-button>
   </div>
 
   <div class="profile-container">
     <div class="profile-content" style="text-align: center;">
-      <h1>📘 Discord-Regeln</h1>
+      <h1><md-icon style="font-size: 32px; vertical-align: middle;">menu_book</md-icon> Discord-Regeln</h1>
       <p>Wähle eine Version der Regeln aus:</p>
-      
+
       <div class="accounts" style="margin-bottom: 20px;">
         <a href="/discord-agb/kurz/" class="account-button" style="justify-content: center;">
-          ✨ Kurzfassung
+          <md-ripple></md-ripple>
+          <md-icon>auto_awesome</md-icon> Kurzfassung
         </a>
         <a href="/discord-agb/umfassend/" class="account-button" style="justify-content: center;">
-          📜 Ausführliche Fassung
+          <md-ripple></md-ripple>
+          <md-icon>description</md-icon> Ausführliche Fassung
         </a>
       </div>
     </div>
@@ -39,6 +67,7 @@
 
   <script>
     const themeSwitcher = document.getElementById('themeSwitcher');
+    const themeIcon = document.getElementById('themeIcon');
     const body = document.body;
     function getCookie(name) {
       const value = `; ${document.cookie}`;
@@ -47,12 +76,12 @@
     }
     if (getCookie('theme') === 'light') {
       body.classList.add('light-mode');
-      themeSwitcher.innerHTML = '<i>☀️</i>';
+      if (themeIcon) themeIcon.textContent = 'light_mode';
     }
     themeSwitcher.addEventListener('click', () => {
       body.classList.toggle('light-mode');
       const isLight = body.classList.contains('light-mode');
-      themeSwitcher.innerHTML = isLight ? '<i>☀️</i>' : '<i>🌙</i>';
+      if (themeIcon) themeIcon.textContent = isLight ? 'light_mode' : 'dark_mode';
       document.cookie = "theme=" + (isLight ? "light" : "dark") + "; path=/; max-age=31536000";
     });
   </script>

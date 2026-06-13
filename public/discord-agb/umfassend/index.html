@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discord-Serverregeln</title>
   <link rel="icon" href="Unbenannt.png" type="image/png">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Import Map for @material/web ES modules -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "/lib/@material/web/",
+      "@lit/reactive-element": "/lib/@lit/reactive-element/reactive-element.js",
+      "@lit/reactive-element/": "/lib/@lit/reactive-element/",
+      "@lit-labs/ssr-dom-shim": "/lib/@lit-labs/ssr-dom-shim/index.js",
+      "lit": "/lib/lit/index.js",
+      "lit/": "/lib/lit/",
+      "lit-html": "/lib/lit-html/lit-html.js",
+      "lit-html/": "/lib/lit-html/",
+      "lit-element/": "/lib/lit-element/",
+      "lit-element": "/lib/lit-element/index.js",
+      "tslib": "/lib/tslib/tslib.es6.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/icon/icon.js';
+    import '@material/web/divider/divider.js';
+  </script>
+
   <style>
     :root {
-      --bg-gradient-start: #2600ff;
-      --bg-gradient-end: #00ccff;
-      --profile-bg: rgba(0, 0, 0, 0.3);
-      --text-color: #ffffff;
-      --highlight-color: #55c1ff;
-      --link-color: #d400ff;
-      --link-hover: #ff00ea;
+      --bg-gradient-start: #0044ff;
+      --bg-gradient-end: #020081;
+      --profile-bg: rgba(17, 19, 24, 0.75);
+      --text-color: #e2e2e6;
+      --text-secondary: rgba(226, 226, 230, 0.7);
+      --highlight-color: #a0c4ff;
+      --link-color: #d5bee5;
+      --link-hover: #f1deff;
+
+      /* M3 Shape */
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-shape-corner-medium: 12px;
+
+      /* M3 Motion */
+      --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+      --md-sys-motion-duration-medium: 300ms;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
@@ -25,66 +64,134 @@
       background-repeat: no-repeat;
       background-size: cover;
       color: var(--text-color);
-      font-family: sans-serif;
+      font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    md-icon {
+      font-family: 'Material Symbols Outlined';
+      font-size: 20px;
+      vertical-align: middle;
+      color: var(--highlight-color);
     }
 
     .container {
       background: var(--profile-bg);
-      border-radius: 20px;
-      padding: 2rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      padding: 40px;
       max-width: 1000px;
       width: 95%;
       margin: 2rem auto;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .15), 0 8px 24px rgba(0, 0, 0, .2);
       box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    h2, h3 {
+    h2 {
+      color: var(--text-color);
+      margin-top: 0;
+      font-family: 'Google Sans', 'Fredoka', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2 md-icon {
+      font-size: 28px;
+    }
+
+    h3 {
       color: var(--highlight-color);
-      margin-top: 1.5rem;
+      margin-top: 32px;
+      font-family: 'Google Sans', 'Fredoka', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    p, li {
+    p,
+    li {
       line-height: 1.7;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    p a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color var(--md-sys-motion-duration-medium);
+    }
+
+    p a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
     }
 
     ul {
       padding-left: 1.4rem;
     }
 
+    li {
+      margin-bottom: 4px;
+    }
+
     li::marker {
-      content: "\1F539\0020";
+      content: "\2022\0020";
+      color: var(--highlight-color);
+    }
+
+    md-divider {
+      --md-divider-color: rgba(255, 255, 255, 0.08);
+      margin: 24px 0;
     }
 
     .footer-nav {
-      margin-top: 2rem;
+      margin-top: 32px;
       text-align: center;
     }
 
     .footer-nav a {
       color: var(--highlight-color);
       margin: 0 1rem;
+      text-decoration: none;
+      font-family: 'Google Sans Text', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity var(--md-sys-motion-duration-medium);
+    }
+
+    .footer-nav a:hover {
       text-decoration: underline;
+      opacity: 0.85;
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 1rem;
+        padding: 24px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h2>📜 Discord-Serverregeln</h2>
-    <p>Die folgenden Regeln gelten verbindlich für alle Mitglieder unseres Discord-Servers.  
-    Sie gelten <strong>ausschließlich für diesen Server</strong> und ergänzen die offiziellen 
-    <a href="https://discord.com/terms" target="_blank">Discord-Nutzungsbedingungen</a> sowie die 
-    <a href="https://discord.com/guidelines" target="_blank">Community-Richtlinien</a>.</p>
+    <h2><md-icon>description</md-icon> Discord-Serverregeln</h2>
+    <p>Die folgenden Regeln gelten verbindlich für alle Mitglieder unseres Discord-Servers.
+      Sie gelten <strong>ausschließlich für diesen Server</strong> und ergänzen die offiziellen
+      <a href="https://discord.com/terms" target="_blank">Discord-Nutzungsbedingungen</a> sowie die
+      <a href="https://discord.com/guidelines" target="_blank">Community-Richtlinien</a>.
+    </p>
 
-    <h3>⚖️ 1. Allgemeines Verhalten</h3>
+    <h3><md-icon>balance</md-icon> 1. Allgemeines Verhalten</h3>
     <ul>
-      <li>Seid respektvoll und freundlich gegenüber allen Mitgliedern. Beleidigungen, Drohungen, Mobbing oder Hassrede werden nicht toleriert.</li>
+      <li>Seid respektvoll und freundlich gegenüber allen Mitgliedern. Beleidigungen, Drohungen, Mobbing oder Hassrede
+        werden nicht toleriert.</li>
       <li>Sprache auf diesem Server ist <strong>Deutsch</strong>.</li>
       <li>Avatare und Nicknames müssen angemessen und nicht anstößig sein.</li>
       <li>Spam, unnötige Wiederholungen, Capslock-Spam oder Missbrauch von Bots ist verboten.</li>
@@ -92,29 +199,34 @@
       <li>Werbung oder Fremdlinks nur mit Erlaubnis der Serverleitung.</li>
     </ul>
 
-    <h3>🔐 2. Datenschutz & Privatsphäre</h3>
+    <h3><md-icon>lock</md-icon> 2. Datenschutz &amp; Privatsphäre</h3>
     <ul>
       <li>Keine Weitergabe privater Daten (z. B. Adresse, Telefonnummer, Passwörter) im Server.</li>
       <li>Private Nachrichten dürfen nur mit Zustimmung der betroffenen Person veröffentlicht werden.</li>
     </ul>
 
-    <h3>🔞 3. Altersverifizierung (Ü18)</h3>
+    <h3><md-icon>18_up_rating</md-icon> 3. Altersverifizierung (Ü18)</h3>
     <ul>
       <li>Der Zugriff auf Ü18-Bereiche erfolgt über ein Ticket-System.</li>
-      <li><strong>Ablauf:</strong> Nach Eröffnung eines Tickets findet ein Gespräch in einem Call statt. Der User muss sich dort in seinen altersverifizierten VRChat-Account einloggen und dies vorzeigen.</li>
-      <li><strong>Bestätigung:</strong> Zur Identifikation wird ein Bestätigungscode an die mit dem Account verknüpfte E-Mail gesendet und abgeglichen.</li>
-      <li><strong>Datenlöschung:</strong> Die im Google Formular erfassten Daten (E-Mail, Discord-Name, Team-Prüfer) dienen nur der Verifizierung und werden am Ende jeden Monats manuell und vollständig gelöscht.</li>
-      <li>Eine zusätzliche Authentifizierung über den Personalausweis oder das native Discord-System ist möglich, aber nicht zwingend erforderlich.</li>
+      <li><strong>Ablauf:</strong> Nach Eröffnung eines Tickets findet ein Gespräch in einem Call statt. Der User muss
+        sich dort in seinen altersverifizierten VRChat-Account einloggen und dies vorzeigen.</li>
+      <li><strong>Bestätigung:</strong> Zur Identifikation wird ein Bestätigungscode an die mit dem Account verknüpfte
+        E-Mail gesendet und abgeglichen.</li>
+      <li><strong>Datenlöschung:</strong> Die im Google Formular erfassten Daten (E-Mail, Discord-Name, Team-Prüfer)
+        dienen nur der Verifizierung und werden am Ende jeden Monats manuell und vollständig gelöscht.</li>
+      <li>Eine zusätzliche Authentifizierung über den Personalausweis oder das native Discord-System ist möglich, aber
+        nicht zwingend erforderlich.</li>
     </ul>
 
-    <h3>🎯 4. Inhalte</h3>
+    <h3><md-icon>flag</md-icon> 4. Inhalte</h3>
     <ul>
-      <li><strong>NSFW-Inhalte sind ausschließlich in den dafür vorgesehenen Kanälen gestattet.</strong> Außerhalb dieser Bereiche ist das Posten solcher Inhalte streng untersagt.</li>
+      <li><strong>NSFW-Inhalte sind ausschließlich in den dafür vorgesehenen Kanälen gestattet.</strong> Außerhalb
+        dieser Bereiche ist das Posten solcher Inhalte streng untersagt.</li>
       <li>Politische und religiöse Diskussionen bitte vermeiden – sie führen schnell zu Konflikten.</li>
       <li>Rassismus, Sexismus, Antisemitismus und jede Art von Diskriminierung sind streng untersagt.</li>
     </ul>
 
-    <h3>🎧 5. Sprachkanäle</h3>
+    <h3><md-icon>headphones</md-icon> 5. Sprachkanäle</h3>
     <ul>
       <li>Respektvoller Umgang ist auch in Voice-Chats Pflicht.</li>
       <li>Störgeräusche, Schreien oder laute Musik sind zu vermeiden.</li>
@@ -122,23 +234,26 @@
       <li>Andere ausreden lassen und nicht absichtlich stören.</li>
     </ul>
 
-    <h3>🛠️ 6. Moderation & Konflikte</h3>
+    <h3><md-icon>build</md-icon> 6. Moderation &amp; Konflikte</h3>
     <ul>
       <li>Die Anweisungen der Moderatoren/Admins sind zu befolgen.</li>
       <li>Diskussionen über Entscheidungen bitte privat mit dem Team klären.</li>
       <li>Konflikte mit anderen Usern zuerst sachlich und direkt lösen – falls nötig, das Team einschalten.</li>
     </ul>
 
-    <h3>🎨 7. Eigene Inhalte</h3>
+    <h3><md-icon>palette</md-icon> 7. Eigene Inhalte</h3>
     <ul>
       <li>Nur Inhalte posten, an denen du die Rechte hast.</li>
       <li>Profilbilder und hochgeladene Inhalte dürfen keine fremden oder anstößigen Materialien enthalten.</li>
     </ul>
 
-    <h3>🌟 8. Schlussbestimmungen</h3>
-    <p>Der Beitritt zu diesem Server ist freiwillig. Mit der Nutzung akzeptierst du diese Regeln.  
-    Verstöße können je nach Schweregrad Verwarnungen, temporäre oder dauerhafte Ausschlüsse nach sich ziehen.  
-    Unser Ziel ist es, dass sich alle Mitglieder wohlfühlen und sicher miteinander interagieren können. 💛</p>
+    <md-divider></md-divider>
+
+    <h3><md-icon>star</md-icon> 8. Schlussbestimmungen</h3>
+    <p>Der Beitritt zu diesem Server ist freiwillig. Mit der Nutzung akzeptierst du diese Regeln.
+      Verstöße können je nach Schweregrad Verwarnungen, temporäre oder dauerhafte Ausschlüsse nach sich ziehen.
+      Unser Ziel ist es, dass sich alle Mitglieder wohlfühlen und sicher miteinander interagieren können. <md-icon
+        style="font-size: 18px; color: #ffb74d;">favorite</md-icon></p>
 
     <div class="footer-nav">
       <a href="/impressum/">Impressum</a>
@@ -147,4 +262,5 @@
     </div>
   </div>
 </body>
+
 </html>

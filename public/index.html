@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloaki</title>
-<meta name="description" content="Cloaki – Furry, Gamer, Streamer & YouTuber. Vernetze dich über Twitch, YouTube, Discord, VRChat und mehr mein gesamtes Profil an einem Ort.">
-<meta name="theme-color" content="#18baf0" />
-<meta name="author" content="Cloaki">
-<link rel="author" href="https://discord.gg/suwEMTC9b7" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloaki</title>
+  <meta name="description"
+    content="Cloaki – Furry, Gamer, Streamer & YouTuber. Vernetze dich über Twitch, YouTube, Discord, VRChat und mehr mein gesamtes Profil an einem Ort.">
+  <meta name="theme-color" content="#18baf0" />
+  <meta name="author" content="Cloaki">
+  <link rel="author" href="https://discord.gg/suwEMTC9b7" />
 
-<meta property="og:title" content="Cloaki" />
-<meta property="og:description" content="Find out more about my wonderful personality and visit all my channels." />
-<meta property="og:url" content="https://cloaki.de/" />
-<meta property="og:image" content="https://cloaki.de/bilder/Cloaki-Profiel-1x1.webp" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Cloaki" />
+  <meta property="og:title" content="Cloaki" />
+  <meta property="og:description" content="Find out more about my wonderful personality and visit all my channels." />
+  <meta property="og:url" content="https://cloaki.de/" />
+  <meta property="og:image" content="https://cloaki.de/bilder/Cloaki-Profiel-1x1.webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cloaki" />
 
-<link rel="icon" type="image/png" href="https://cloaki.de/Unbenannt.png">
-<link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://cloaki.de/Unbenannt.png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Import Map for @material/web ES modules -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "/lib/@material/web/",
+      "@lit/reactive-element": "/lib/@lit/reactive-element/reactive-element.js",
+      "@lit/reactive-element/": "/lib/@lit/reactive-element/",
+      "@lit-labs/ssr-dom-shim": "/lib/@lit-labs/ssr-dom-shim/index.js",
+      "lit": "/lib/lit/index.js",
+      "lit/": "/lib/lit/",
+      "lit-html": "/lib/lit-html/lit-html.js",
+      "lit-html/": "/lib/lit-html/",
+      "lit-element/": "/lib/lit-element/",
+      "lit-element": "/lib/lit-element/index.js",
+      "tslib": "/lib/tslib/tslib.es6.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/icon/icon.js';
+    import '@material/web/iconbutton/icon-button.js';
+    import '@material/web/chips/assist-chip.js';
+    import '@material/web/chips/chip-set.js';
+    import '@material/web/ripple/ripple.js';
+    import '@material/web/divider/divider.js';
+  </script>
 </head>
+
 <body>
-  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln" role="button">
-    <i aria-hidden="true">🌙</i>
+  <div class="theme-switcher" id="themeSwitcher" aria-label="Theme wechseln">
+    <md-icon-button id="themeBtn" aria-label="Theme wechseln">
+      <md-icon id="themeIcon">dark_mode</md-icon>
+    </md-icon-button>
   </div>
 
   <div class="profile-container">
@@ -42,10 +74,10 @@
 
         <div class="roles">
           <div class="roles-title">Persönliche Rollen</div>
-          <div class="role-tags">
-            <span>Kleiner Mensch</span>
-            <span>Fluff Gang</span>
-          </div>
+          <md-chip-set>
+            <md-assist-chip label="Kleiner Mensch"></md-assist-chip>
+            <md-assist-chip label="Fluff Gang"></md-assist-chip>
+          </md-chip-set>
         </div>
 
         <div class="links-title-container">
@@ -53,17 +85,43 @@
         </div>
 
         <div class="accounts">
-          <a href="https://www.tiktok.com/@cloakiy" target="_blank" class="account-button"><span class="emoji">📱</span> TikTok</a>
-          <a href="https://www.twitch.tv/cloakiy" target="_blank" class="account-button"><span class="emoji">🎥</span> Twitch</a>
-          <a href="https://discord.gg/suwEMTC9b7" target="_blank" class="account-button"><span class="emoji">🔊</span> Discord</a>
-          <a href="https://ko-fi.com/cloaki" target="_blank" class="account-button"><span class="emoji">☕</span> Ko-fi</a>
-          <a href="https://www.youtube.com/@Cloaki" target="_blank" class="account-button"><span class="emoji">🎬</span> Youtube</a>
-          <a href="https://www.instagram.com/cloakiy/" target="_blank" class="account-button"><span class="emoji">📷</span> instagram</a>
-          <a href="https://x.com/Cloakiy" target="_blank" class="account-button"><span class="emoji">✖️</span> X</a>
-          <a href="https://www.reddit.com/user/Cloakiy/" target="_blank" class="account-button"><span class="emoji">🗯️</span> Reddit</a>
-          <a href="https://steamcommunity.com/profiles/76561199415839546" target="_blank" class="account-button"><span class="emoji">🎮</span> Steam</a>
-          <a href="https://vrchat.com/home/user/usr_fa6e084d-9235-4492-a748-78da4c5d7ada" target="_blank" class="account-button"><span class="emoji">💬</span> VRChat</a>
-          <a href="https://t.me/Cloakiy" target="_blank" class="account-button"><span class="emoji">📨</span> Telegram</a>
+          <a href="https://www.tiktok.com/@cloakiy" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>phone_iphone</md-icon>
+            TikTok</a>
+          <a href="https://www.twitch.tv/cloakiy" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>videocam</md-icon>
+            Twitch</a>
+          <a href="https://discord.gg/suwEMTC9b7" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>headset_mic</md-icon>
+            Discord</a>
+          <a href="https://ko-fi.com/cloaki" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>coffee</md-icon>
+            Ko-fi</a>
+          <a href="https://www.youtube.com/@Cloaki" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>play_circle</md-icon>
+            Youtube</a>
+          <a href="https://x.com/Cloakiy" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>tag</md-icon> X</a>
+          <a href="https://www.reddit.com/user/Cloakiy/" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>forum</md-icon> Reddit</a>
+          <a href="https://steamcommunity.com/profiles/76561199415839546" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>sports_esports</md-icon> Steam</a>
+          <a href="https://vrchat.com/home/user/usr_fa6e084d-9235-4492-a748-78da4c5d7ada" target="_blank"
+            class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>3d_rotation</md-icon> VRChat</a>
+          <a href="https://t.me/Cloakiy" target="_blank" class="account-button">
+            <md-ripple></md-ripple>
+            <md-icon>send</md-icon>
+            Telegram</a>
         </div>
       </div>
 
@@ -74,10 +132,10 @@
         <span class="friend-item"><span class="emoji">🫂</span> juniorwmg</span>
         <span class="friend-item"><span class="emoji">🐶</span> Teom</span>
         <span class="friend-item"><span class="emoji">🐾</span> herr_sparky</span>
-        <span class="friend-item"><span class="emoji">🐾</span> janox4722</span> 
-        <span class="friend-item"><span class="emoji">🌟</span> shadownova0666</span> 
-        <span class="friend-item"><span class="emoji">🦊</span> Flox</span> 
-        <span class="friend-item"><span class="emoji">🟢</span> Summer</span> 
+        <span class="friend-item"><span class="emoji">🐾</span> janox4722</span>
+        <span class="friend-item"><span class="emoji">🌟</span> shadownova0666</span>
+        <span class="friend-item"><span class="emoji">🦊</span> Flox</span>
+        <span class="friend-item"><span class="emoji">🟢</span> Summer</span>
       </div>
     </div>
   </div>
@@ -93,7 +151,11 @@
 
   <div id="modal-impressum" class="modal">
     <div class="modal-content">
-      <span class="close-modal">&times;</span>
+      <div class="close-modal">
+        <md-icon-button aria-label="Schließen">
+          <md-icon>close</md-icon>
+        </md-icon-button>
+      </div>
       <h2>Impressum</h2>
       <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong></p>
       <p>Paul Häuser<br>Eichenstraße 59<br>07549 Gera<br>Deutschland</p>
@@ -102,58 +164,98 @@
         E-Mail: <a href="mailto:owner@cloaki.de">owner@cloaki.de</a><br>
         Tel.: <a href="tel:+4915256958193">+49 1525 6958193</a>
       </p>
-      <p><strong>Hinweis:</strong><br>Für den Versand von Paketen oder physischen Anfragen bitten wir um vorherige Kontaktaufnahme per E-Mail. Die genannte Anschrift dient ausschließlich der Impressumspflicht und ist keine Absenderadresse für Rücksendungen oder Warenversand.</p>
-      <hr style="border: 0; border-top: 1px solid rgba(128,128,128,0.3); margin: 24px 0;">
+      <p><strong>Hinweis:</strong><br>Für den Versand von Paketen oder physischen Anfragen bitten wir um vorherige
+        Kontaktaufnahme per E-Mail. Die genannte Anschrift dient ausschließlich der Impressumspflicht und ist keine
+        Absenderadresse für Rücksendungen oder Warenversand.</p>
+      <md-divider></md-divider>
       <h3>Geltungsbereich</h3>
-      <p>Dieses Impressum gilt für die Website <strong>cloaki-studio.web.app</strong>, <strong>cloaki.de</strong> sowie für sämtliche Onlinepräsenzen, die eindeutig auf diese Website verlinken oder als Teil meines privaten Netzwerks erkennbar sind, insbesondere:</p>
+      <p>Dieses Impressum gilt für die Website <strong>cloaki-studio.web.app</strong>, <strong>cloaki.de</strong> sowie
+        für sämtliche Onlinepräsenzen, die eindeutig auf diese Website verlinken oder als Teil meines privaten Netzwerks
+        erkennbar sind, insbesondere:</p>
       <ul style="list-style-position: inside; padding-left: 0;">
-        <li>meinen YouTube-Kanal</li><li>meinen Twitch-Kanal</li><li>meinen Discord-Server</li><li>mein Steam-Profil</li><li>mein Epicgames-Profil</li><li>mein GitHub-Profil</li><li>mein Instagram-Profil</li><li>mein VRChat-Profil</li>
+        <li>meinen YouTube-Kanal</li>
+        <li>meinen Twitch-Kanal</li>
+        <li>meinen Discord-Server</li>
+        <li>mein Steam-Profil</li>
+        <li>mein Epicgames-Profil</li>
+        <li>mein GitHub-Profil</li>
+        <li>mein Instagram-Profil</li>
+        <li>mein VRChat-Profil</li>
       </ul>
     </div>
   </div>
 
   <div id="modal-datenschutz" class="modal">
     <div class="modal-content">
-      <span class="close-modal">&times;</span>
+      <div class="close-modal">
+        <md-icon-button aria-label="Schließen">
+          <md-icon>close</md-icon>
+        </md-icon-button>
+      </div>
       <h2>Datenschutz</h2>
       <h3>Geltungsbereich</h3>
-      <p>Diese Datenschutzerklärung gilt in erster Linie für die Websites <strong>https://cloaki.de</strong> und <strong>https://cloak-studio.web.app</strong>. Zusätzlich umfasst sie das Minecraft-Projekt „NuggetSMP“ unter <strong>https://NuggetSMP.fun</strong>.</p>
-      <p>Sie gilt ebenfalls für alle zugehörigen Discord-Server (Community-Server, Minecraft-Discord) und Partner-Communities, soweit sie von derselben verantwortlichen Person betrieben oder direkt verknüpft sind. Die Nutzung oder Übernahme dieser Datenschutzerklärung durch Dritte ist nicht gestattet.</p>
+      <p>Diese Datenschutzerklärung gilt in erster Linie für die Websites <strong>https://cloaki.de</strong> und
+        <strong>https://cloak-studio.web.app</strong>. Zusätzlich umfasst sie das Minecraft-Projekt „NuggetSMP" unter
+        <strong>https://NuggetSMP.fun</strong>.
+      </p>
+      <p>Sie gilt ebenfalls für alle zugehörigen Discord-Server (Community-Server, Minecraft-Discord) und
+        Partner-Communities, soweit sie von derselben verantwortlichen Person betrieben oder direkt verknüpft sind. Die
+        Nutzung oder Übernahme dieser Datenschutzerklärung durch Dritte ist nicht gestattet.</p>
       <h3>Allgemeines</h3>
-      <p>Der Schutz personenbezogener Daten ist mir wichtig. Diese Projekte sind privat und nicht-kommerziell. Es werden ausschließlich technisch notwendige Informationen verarbeitet – z. B. zur Anzeige von Darstellungsoptionen (Dark-/Light-Modus) oder zur stabilen Auslieferung der Seite.</p>
+      <p>Der Schutz personenbezogener Daten ist mir wichtig. Diese Projekte sind privat und nicht-kommerziell. Es werden
+        ausschließlich technisch notwendige Informationen verarbeitet – z. B. zur Anzeige von Darstellungsoptionen
+        (Dark-/Light-Modus) oder zur stabilen Auslieferung der Seite.</p>
       <h3>Verantwortliche Stelle</h3>
-      <p>Verantwortlich im Sinne der DSGVO ist die im <a class="modal-link" data-target="modal-impressum">Impressum</a> genannte Person.<br>Kontakt: <a href="mailto:cloaki.yt@gmail.com">cloaki.yt@gmail.com</a></p>
-      <h3>Hosting (Firebase & Google Workspace)</h3>
-      <p>Das Hosting erfolgt über <strong>Firebase Hosting</strong>. Für die Altersverifizierung wird <strong>Google Forms</strong> genutzt (beides Google LLC).</p>
+      <p>Verantwortlich im Sinne der DSGVO ist die im <a class="modal-link" data-target="modal-impressum">Impressum</a>
+        genannte Person.<br>Kontakt: <a href="mailto:cloaki.yt@gmail.com">cloaki.yt@gmail.com</a></p>
+      <h3>Hosting (Firebase &amp; Google Workspace)</h3>
+      <p>Das Hosting erfolgt über <strong>Firebase Hosting</strong>. Für die Altersverifizierung wird <strong>Google
+          Forms</strong> genutzt (beides Google LLC).</p>
       <ul>
         <li>Google ist Auftragsverarbeiter nach Art. 28 DSGVO.</li>
         <li>Datentransfers erfolgen gemäß <strong>EU-US Data Privacy Framework</strong>.</li>
         <li>Gespeicherte Verbindungsdaten: IP-Adresse, Datum/Uhrzeit, Browsertyp, Betriebssystem.</li>
         <li>Daten werden ausschließlich zu Sicherheits-, Stabilitäts- und Verifizierungszwecken verarbeitet.</li>
       </ul>
-      <h3>Altersverifizierung (Discord & VRChat)</h3>
+      <h3>Altersverifizierung (Discord &amp; VRChat)</h3>
       <p>Für den Zugriff auf altersbeschränkte Bereiche führen wir eine manuelle Verifizierung durch:</p>
       <ul>
-        <li><strong>Ablauf:</strong> Eröffnung eines Tickets auf Discord, Gespräch in einem Voice-Call, Nachweis eines verifizierten VRChat-Accounts sowie Abgleich via E-Mail-Bestätigungscode.</li>
-        <li><strong>Speicherung:</strong> Die Daten werden in einem passwortgeschützten Google Formular erfasst. Zugriff hat ausschließlich die Projektleitung. Die Ergebnisse werden zum Ende jeden Monats vollständig und manuell gelöscht.</li>
+        <li><strong>Ablauf:</strong> Eröffnung eines Tickets auf Discord, Gespräch in einem Voice-Call, Nachweis eines
+          verifizierten VRChat-Accounts sowie Abgleich via E-Mail-Bestätigungscode.</li>
+        <li><strong>Speicherung:</strong> Die Daten werden in einem passwortgeschützten Google Formular erfasst. Zugriff
+          hat ausschließlich die Projektleitung. Die Ergebnisse werden zum Ende jeden Monats vollständig und manuell
+          gelöscht.</li>
       </ul>
-      <h3>Speicherdauer & Speicherort</h3>
-      <p>Serverprotokolle des Minecraft-Projekts werden ca. 30 Tage vorgehalten. Archivierte Log-Auszüge zur Beweissicherung werden nach spätestens 15 Monaten gelöscht. Daten aus der Altersverifizierung werden monatlich gelöscht.</p>
+      <h3>Speicherdauer &amp; Speicherort</h3>
+      <p>Serverprotokolle des Minecraft-Projekts werden ca. 30 Tage vorgehalten. Archivierte Log-Auszüge zur
+        Beweissicherung werden nach spätestens 15 Monaten gelöscht. Daten aus der Altersverifizierung werden monatlich
+        gelöscht.</p>
       <p><strong>Stand:</strong> Aktualisiert: 22. Februar 2026</p>
     </div>
   </div>
 
   <div id="modal-haftung" class="modal">
     <div class="modal-content">
-      <span class="close-modal">&times;</span>
+      <div class="close-modal">
+        <md-icon-button aria-label="Schließen">
+          <md-icon>close</md-icon>
+        </md-icon-button>
+      </div>
       <h2>Haftungsausschluss</h2>
       <h3>Geltungsbereich</h3>
-      <p>Dieser Haftungsausschluss gilt für die Websites <strong>https://cloaki.de</strong>, <strong>https://cloak-studio.web.app</strong> sowie für das Minecraft-Projekt <strong>NuggetSMP</strong> unter <strong>https://NuggetSMP.fun</strong>.</p>
-      <h3>Privater Charakter & Monetarisierung</h3>
-      <p>Diese Angebote sind privat. Über Plattformen wie TikTok oder <strong>Ko-fi</strong> können freiwillige Zuwendungen (Spenden) entstehen. Diese dienen der Finanzierung privater Projekte (z. B. Hardware-Ziele) und stellen keine gewerbliche Tätigkeit dar.</p>
-      <h3>Haftung für Inhalte & Links</h3>
-      <p>Die Inhalte wurden mit Sorgfalt erstellt. Für Richtigkeit und Aktualität übernehme ich keine Gewähr. Externe Partner-Communities werden lediglich verlinkt; für deren Inhalte sind die jeweiligen Betreiber verantwortlich.</p>
-      <h3>Discord & Minecraft</h3>
+      <p>Dieser Haftungsausschluss gilt für die Websites <strong>https://cloaki.de</strong>,
+        <strong>https://cloak-studio.web.app</strong> sowie für das Minecraft-Projekt <strong>NuggetSMP</strong> unter
+        <strong>https://NuggetSMP.fun</strong>.
+      </p>
+      <h3>Privater Charakter &amp; Monetarisierung</h3>
+      <p>Diese Angebote sind privat. Über Plattformen wie TikTok oder <strong>Ko-fi</strong> können freiwillige
+        Zuwendungen (Spenden) entstehen. Diese dienen der Finanzierung privater Projekte (z. B. Hardware-Ziele) und
+        stellen keine gewerbliche Tätigkeit dar.</p>
+      <h3>Haftung für Inhalte &amp; Links</h3>
+      <p>Die Inhalte wurden mit Sorgfalt erstellt. Für Richtigkeit und Aktualität übernehme ich keine Gewähr. Externe
+        Partner-Communities werden lediglich verlinkt; für deren Inhalte sind die jeweiligen Betreiber verantwortlich.
+      </p>
+      <h3>Discord &amp; Minecraft</h3>
       <ul>
         <li>Die Teilnahme am Discord und am Minecraft-Server ist freiwillig.</li>
         <li>Moderationsmaßnahmen liegen im Ermessen des Teams; es besteht kein Anspruch auf Teilnahme.</li>
@@ -161,123 +263,127 @@
         <li><strong>SimpleVoiceChat:</strong> Sprachbeiträge können in Streams/Videos Dritter erscheinen.</li>
       </ul>
       <h3>Urheberrecht</h3>
-      <p>Eigene Inhalte (Grafiken, Texte, Banner) unterliegen meinem Urheberrecht. Eine Nutzung ohne Genehmigung ist untersagt.</p>
+      <p>Eigene Inhalte (Grafiken, Texte, Banner) unterliegen meinem Urheberrecht. Eine Nutzung ohne Genehmigung ist
+        untersagt.</p>
       <h3>Datenschutz</h3>
-      <p>Hinweise zur Datenverarbeitung findest du in der <a class="modal-link" data-target="modal-datenschutz">Datenschutzerklärung</a>.</p>
+      <p>Hinweise zur Datenverarbeitung findest du in der <a class="modal-link"
+          data-target="modal-datenschutz">Datenschutzerklärung</a>.</p>
       <p><strong>Stand:</strong> Aktualisiert: 22. Februar 2026</p>
     </div>
   </div>
 
-<script>
-  // Theme Logik
-  const themeSwitcher = document.getElementById('themeSwitcher');
-  const body = document.body;
+  <script>
+    // Theme Logik
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
 
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      expires = "; expires=" + date.toUTCString();
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
 
-  function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
     }
-    return null;
-  }
 
-  const savedTheme = getCookie('theme');
-  if (savedTheme === 'light') {
-    body.classList.add('light-mode');
-    themeSwitcher.innerHTML = '<i>☀️</i>';
-  }
-
-  themeSwitcher.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
-    if (body.classList.contains('light-mode')) {
-      themeSwitcher.innerHTML = '<i>☀️</i>';
-      setCookie('theme', 'light', 365);
-    } else {
-      themeSwitcher.innerHTML = '<i>🌙</i>';
-      setCookie('theme', 'dark', 365);
+    const savedTheme = getCookie('theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light-mode');
+      if (themeIcon) themeIcon.textContent = 'light_mode';
     }
-  });
 
-  // Modal Logik & URL Erkennung
-  const modals = document.querySelectorAll('.modal');
-  const modalLinks = document.querySelectorAll('.modal-link');
-  const closeBtns = document.querySelectorAll('.close-modal');
-
-  function openModal(id) {
-    modals.forEach(m => m.classList.remove('active'));
-    const modal = document.getElementById(id);
-    if(modal) {
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; 
-    }
-  }
-
-  function closeModal() {
-    modals.forEach(m => m.classList.remove('active'));
-    document.body.style.overflow = '';
-    history.replaceState(null, null, window.location.pathname);
-  }
-
-  modalLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = link.getAttribute('data-target');
-      openModal(target);
-      window.location.hash = target.replace('modal-', '');
+    themeSwitcher.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        if (themeIcon) themeIcon.textContent = 'light_mode';
+        setCookie('theme', 'light', 365);
+      } else {
+        if (themeIcon) themeIcon.textContent = 'dark_mode';
+        setCookie('theme', 'dark', 365);
+      }
     });
-  });
 
-  closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
-  window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) closeModal();
-  });
+    // Modal Logik & URL Erkennung
+    const modals = document.querySelectorAll('.modal');
+    const modalLinks = document.querySelectorAll('.modal-link');
+    const closeBtns = document.querySelectorAll('.close-modal');
 
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
-      const hash = window.location.hash.substring(1);
-      openModal('modal-' + hash);
+    function openModal(id) {
+      modals.forEach(m => m.classList.remove('active'));
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     }
-  });
 
-  // Dynamische Skeleton Animation für Banner & Avatar
-  function revealElement(imgElem, shimmerElem) {
-    imgElem.classList.add('loaded');
-    setTimeout(() => {
-      if (shimmerElem) shimmerElem.style.display = 'none';
-    }, 600);
-  }
-
-  function handleImageLoad(imgElem, shimmerElem, sessionKey) {
-    if (!sessionStorage.getItem(sessionKey)) {
-      sessionStorage.setItem(sessionKey, 'true');
-      setTimeout(() => revealElement(imgElem, shimmerElem), 1800); 
-    } else {
-      revealElement(imgElem, shimmerElem);
+    function closeModal() {
+      modals.forEach(m => m.classList.remove('active'));
+      document.body.style.overflow = '';
+      history.replaceState(null, null, window.location.pathname);
     }
-  }
 
-  const avatarImg = document.getElementById('avatarImage');
-  const avatarShimmer = document.getElementById('avatarShimmer');
-  if (avatarImg.complete) handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession');
-  else avatarImg.addEventListener('load', () => handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession'));
+    modalLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+        openModal(target);
+        window.location.hash = target.replace('modal-', '');
+      });
+    });
 
-  const bannerImg = document.getElementById('bannerImage');
-  const bannerShimmer = document.getElementById('bannerShimmer');
-  if (bannerImg.complete) handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession');
-  else bannerImg.addEventListener('load', () => handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession'));
-</script>
+    closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+    window.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) closeModal();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        openModal('modal-' + hash);
+      }
+    });
+
+    // Dynamische Skeleton Animation für Banner & Avatar
+    function revealElement(imgElem, shimmerElem) {
+      imgElem.classList.add('loaded');
+      setTimeout(() => {
+        if (shimmerElem) shimmerElem.style.display = 'none';
+      }, 600);
+    }
+
+    function handleImageLoad(imgElem, shimmerElem, sessionKey) {
+      if (!sessionStorage.getItem(sessionKey)) {
+        sessionStorage.setItem(sessionKey, 'true');
+        setTimeout(() => revealElement(imgElem, shimmerElem), 1800);
+      } else {
+        revealElement(imgElem, shimmerElem);
+      }
+    }
+
+    const avatarImg = document.getElementById('avatarImage');
+    const avatarShimmer = document.getElementById('avatarShimmer');
+    if (avatarImg.complete) handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession');
+    else avatarImg.addEventListener('load', () => handleImageLoad(avatarImg, avatarShimmer, 'avatarLoadedSession'));
+
+    const bannerImg = document.getElementById('bannerImage');
+    const bannerShimmer = document.getElementById('bannerShimmer');
+    if (bannerImg.complete) handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession');
+    else bannerImg.addEventListener('load', () => handleImageLoad(bannerImg, bannerShimmer, 'bannerLoadedSession'));
+  </script>
 </body>
+
 </html>

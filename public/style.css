@@ -1,56 +1,178 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
-html, body {
+html,
+body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-html::-webkit-scrollbar, body::-webkit-scrollbar {
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
   display: none;
 }
 
+/* ============================================
+   M3 DESIGN TOKENS – DARK MODE (Default)
+   ============================================ */
 :root {
+  /* Primary */
+  --md-sys-color-primary: #a0c4ff;
+  --md-sys-color-on-primary: #003060;
+  --md-sys-color-primary-container: #004a87;
+  --md-sys-color-on-primary-container: #d1e4ff;
+
+  /* Secondary */
+  --md-sys-color-secondary: #bbc7db;
+  --md-sys-color-on-secondary: #263141;
+  --md-sys-color-secondary-container: #3c4858;
+  --md-sys-color-on-secondary-container: #d7e3f7;
+
+  /* Tertiary */
+  --md-sys-color-tertiary: #d5bee5;
+  --md-sys-color-on-tertiary: #3a2849;
+  --md-sys-color-tertiary-container: #523f61;
+  --md-sys-color-on-tertiary-container: #f1deff;
+
+  /* Surface & Background */
+  --md-sys-color-surface: #111318;
+  --md-sys-color-surface-dim: #111318;
+  --md-sys-color-surface-bright: #37393e;
+  --md-sys-color-on-surface: #e2e2e6;
+  --md-sys-color-on-surface-variant: #c3c6cf;
+  --md-sys-color-surface-container-lowest: #0c0e13;
+  --md-sys-color-surface-container-low: #191c20;
+  --md-sys-color-surface-container: #1d2024;
+  --md-sys-color-surface-container-high: #282a2f;
+  --md-sys-color-surface-container-highest: #32353a;
+
+  /* Outline */
+  --md-sys-color-outline: #8d9099;
+  --md-sys-color-outline-variant: #43474e;
+
+  /* Error */
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+
+  /* Inverse */
+  --md-sys-color-inverse-surface: #e2e2e6;
+  --md-sys-color-inverse-on-surface: #2f3036;
+  --md-sys-color-inverse-primary: #005faf;
+
+  /* Mapped Variables (for backward compat) */
   --bg-gradient-start: #0044ff;
   --bg-gradient-end: #020081;
-  --profile-bg: rgba(0, 0, 0, 0.4);
-  --modal-bg: rgba(0, 0, 0, 0.45);
-  --text-color: #fff;
-  --text-secondary: rgba(255, 255, 255, 0.65); /* Etwas dezenter für die Labels */
-  --role-bg: rgba(255, 255, 255, 0.05); /* Subtilerer Glas-Look für die Rollen */
-  --role-border: rgba(255, 255, 255, 0.1);
-  --button-bg: rgba(0, 0, 0, 0.5);
-  --button-border: rgba(255, 255, 255, 0.1);
-  --button-hover-bg: rgba(255, 255, 255, 0.15);
-  --button-glow: 0 4px 12px rgba(0, 255, 255, 0.15); /* Weicherer, weniger aggressiver Glow im Dark Mode */
-  --description-bg: rgba(0, 0, 0, 0.5);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --card-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-  --avatar-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  --footer-link-color: #00ffff;
+  --profile-bg: rgba(17, 19, 24, 0.75);
+  --modal-bg: rgba(17, 19, 24, 0.85);
+  --text-color: var(--md-sys-color-on-surface);
+  --text-secondary: var(--md-sys-color-on-surface-variant);
+  --role-bg: var(--md-sys-color-surface-container);
+  --role-border: var(--md-sys-color-outline-variant);
+  --button-bg: var(--md-sys-color-surface-container-high);
+  --button-border: var(--md-sys-color-outline-variant);
+  --button-hover-bg: var(--md-sys-color-surface-container-highest);
+  --button-glow: 0 4px 15px rgba(160, 196, 255, 0.12);
+  --description-bg: var(--md-sys-color-surface-container);
+  --card-border: var(--md-sys-color-outline-variant);
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+  --avatar-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --footer-link-color: var(--md-sys-color-primary);
+
+  /* M3 Elevation */
+  --md-sys-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .3);
+  --md-sys-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .3);
+  --md-sys-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, .15), 0 1px 3px rgba(0, 0, 0, .3);
+
+  /* M3 Shape */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* M3 Motion */
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-duration-short: 200ms;
+  --md-sys-motion-duration-medium: 300ms;
+  --md-sys-motion-duration-long: 500ms;
+
+  /* M3 Component Tokens */
+  --md-filled-tonal-button-container-color: var(--md-sys-color-secondary-container);
+  --md-filled-tonal-button-label-text-color: var(--md-sys-color-on-secondary-container);
+  --md-icon-button-icon-color: var(--md-sys-color-on-surface-variant);
 }
 
+/* ============================================
+   M3 DESIGN TOKENS – LIGHT MODE
+   ============================================ */
 .light-mode {
-  --bg-gradient-start: #8ab4f8; 
+  /* Primary */
+  --md-sys-color-primary: #005faf;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d1e4ff;
+  --md-sys-color-on-primary-container: #001d36;
+
+  /* Secondary */
+  --md-sys-color-secondary: #535f70;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d7e3f7;
+  --md-sys-color-on-secondary-container: #101c2b;
+
+  /* Surface */
+  --md-sys-color-surface: #f8f9ff;
+  --md-sys-color-surface-dim: #d8dae0;
+  --md-sys-color-surface-bright: #f8f9ff;
+  --md-sys-color-on-surface: #191c20;
+  --md-sys-color-on-surface-variant: #43474e;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f2f3f9;
+  --md-sys-color-surface-container: #ecedf3;
+  --md-sys-color-surface-container-high: #e7e8ee;
+  --md-sys-color-surface-container-highest: #e1e2e8;
+
+  /* Outline */
+  --md-sys-color-outline: #73777f;
+  --md-sys-color-outline-variant: #c3c6cf;
+
+  /* Inverse */
+  --md-sys-color-inverse-surface: #2f3036;
+  --md-sys-color-inverse-on-surface: #f0f0f6;
+  --md-sys-color-inverse-primary: #a0c4ff;
+
+  /* Mapped Variables */
+  --bg-gradient-start: #8ab4f8;
   --bg-gradient-end: #d2e3fc;
-  --profile-bg: rgba(255, 255, 255, 0.45);
-  --modal-bg: rgba(255, 255, 255, 0.55);
-  --text-color: #222;
-  --text-secondary: #666;
-  --role-bg: rgba(255, 255, 255, 0.6);
-  --role-border: rgba(0, 0, 0, 0.05);
-  --button-bg: rgba(255, 255, 255, 0.85);
-  --button-border: rgba(255, 255, 255, 1);
-  --button-hover-bg: #fff;
-  --button-glow: 0 4px 16px rgba(255, 255, 255, 1);
-  --description-bg: rgba(255, 255, 255, 0.5);
-  --card-border: rgba(255, 255, 255, 0.8);
-  --card-shadow: 0 16px 32px rgba(0, 0, 50, 0.1);
-  --avatar-shadow: 0 8px 24px rgba(0, 0, 50, 0.2);
-  --footer-link-color: #0033aa;
+  --profile-bg: rgba(248, 249, 255, 0.8);
+  --modal-bg: rgba(248, 249, 255, 0.9);
+  --text-color: var(--md-sys-color-on-surface);
+  --text-secondary: var(--md-sys-color-on-surface-variant);
+  --role-bg: var(--md-sys-color-surface-container);
+  --role-border: var(--md-sys-color-outline-variant);
+  --button-bg: var(--md-sys-color-surface-container-low);
+  --button-border: var(--md-sys-color-outline-variant);
+  --button-hover-bg: var(--md-sys-color-surface-container-high);
+  --button-glow: 0 4px 16px rgba(0, 95, 175, 0.08);
+  --description-bg: var(--md-sys-color-surface-container-low);
+  --card-border: var(--md-sys-color-outline-variant);
+  --card-shadow: 0 2px 6px rgba(0, 0, 50, 0.06), 0 8px 24px rgba(0, 0, 50, 0.08);
+  --avatar-shadow: 0 4px 16px rgba(0, 0, 50, 0.12);
+  --footer-link-color: var(--md-sys-color-primary);
+
+  /* M3 Elevation (lighter for light mode) */
+  --md-sys-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .12);
+  --md-sys-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .12);
+  --md-sys-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, .08), 0 1px 3px rgba(0, 0, 0, .12);
 }
 
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   background-attachment: fixed;
   color: var(--text-color);
@@ -60,35 +182,62 @@ body {
   align-items: center;
   padding: 24px;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.username, h1, h2, h3, .account-button, .friend-item {
-  font-family: 'Fredoka', sans-serif;
+.username,
+h1,
+h2,
+h3,
+.account-button,
+.friend-item {
+  font-family: 'Fredoka', 'Google Sans', sans-serif;
 }
 
-/* CONTAINER */
+/* ============================================
+   M3 ICON STYLING
+   ============================================ */
+md-icon {
+  font-family: 'Material Symbols Outlined';
+  font-size: 20px;
+  vertical-align: middle;
+  color: inherit;
+}
+
+.account-button md-icon {
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+/* ============================================
+   PROFILE CONTAINER
+   ============================================ */
 .profile-container {
   max-width: 650px;
   width: 100%;
   background: var(--profile-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--md-sys-shape-corner-extra-large);
   position: relative;
   margin-top: 48px;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--md-sys-elevation-3);
   overflow: visible;
   border: 1px solid var(--card-border);
 }
 
-/* BANNER */
+/* ============================================
+   BANNER
+   ============================================ */
 .banner {
   width: 100%;
   height: 180px;
   position: relative;
-  border-radius: 23px 23px 0 0; /* 1px weniger als Container für perfekten Sitz */
+  border-radius: 27px 27px 0 0;
   overflow: hidden;
 }
+
 .banner-img {
   width: 100%;
   height: 100%;
@@ -96,173 +245,307 @@ body {
   position: relative;
   z-index: 2;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s var(--md-sys-motion-easing-standard);
 }
+
 .banner-img.loaded {
   opacity: 1;
 }
 
-/* AVATAR (Größer, Bugfix für Ränder) */
+/* ============================================
+   AVATAR
+   ============================================ */
 .avatar-container {
   position: absolute;
-  top: 110px; /* Leicht nach oben korrigiert für die neue Größe */
+  top: 110px;
   right: 32px;
-  width: 140px; /* Vergrößert, schließt den Hohlraum rechts */
+  width: 140px;
   height: 140px;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   z-index: 10;
   box-shadow: var(--avatar-shadow);
   overflow: hidden;
-  /* Kein Background hier, verhindert den feinen Rand-Bug */
 }
+
 .avatar-img {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--md-sys-shape-corner-full);
   z-index: 2;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s var(--md-sys-motion-easing-standard);
 }
+
 .avatar-img.loaded {
   opacity: 1;
 }
 
-/* SHIMMER ANIMATION */
+/* ============================================
+   SKELETON SHIMMER
+   ============================================ */
 .skeleton-shimmer {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--button-bg); /* Hintergrundfarbe nur für den Skeleton-State */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--button-bg);
   z-index: 1;
 }
+
 .skeleton-shimmer::after {
   content: "";
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
   transform: translateX(-100%);
   animation: shimmer 1.5s infinite;
 }
+
 .light-mode .skeleton-shimmer::after {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
+
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-/* INHALT & ABSTÄNDE */
-.profile-content { padding: 32px; }
-.profile-info { display: flex; flex-direction: column; align-items: flex-start; }
+/* ============================================
+   PROFILE CONTENT & SPACING
+   ============================================ */
+.profile-content {
+  padding: 32px;
+}
 
-.username { font-size: 34px; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px; }
-.pronouns { font-size: 16px; opacity: 0.9; margin-bottom: 28px; }
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-/* DEZENTE KATEGORIE-LABELS (Behebt den "fragwürdigen" Look) */
-.roles-title { 
-  font-size: 13px; 
-  text-transform: uppercase; 
-  letter-spacing: 1.5px; 
+.username {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+}
+
+.pronouns {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  letter-spacing: 0.2px;
+}
+
+/* ============================================
+   CATEGORY LABELS (M3 Label Large)
+   ============================================ */
+.roles-title {
+  font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   color: var(--text-secondary);
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-/* Symmetrischer Abstand vor der Links-Kategorie */
 .links-title-container {
   margin-top: 32px;
   width: 100%;
 }
 
-.role-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+/* ============================================
+   ROLE TAGS → M3 ASSIST CHIPS
+   ============================================ */
+.role-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Fallback styling for chip-like elements */
+.role-tags span,
+md-assist-chip {
+  font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+  font-size: 14px;
+}
+
 .role-tags span {
   background: var(--role-bg);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid var(--role-border);
-  padding: 8px 18px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: var(--md-sys-shape-corner-small);
   font-size: 14px;
 }
 
-/* BUTTONS (Kompakter) */
+/* M3 Chip theming */
+md-chip-set {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+md-assist-chip {
+  --md-assist-chip-container-shape: var(--md-sys-shape-corner-small);
+  --md-assist-chip-outline-color: var(--md-sys-color-outline-variant);
+  --md-assist-chip-label-text-color: var(--md-sys-color-on-surface);
+}
+
+/* ============================================
+   ACCOUNT BUTTONS (Social Links)
+   ============================================ */
 .accounts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px; /* Etwas näher zusammen */
+  gap: 12px;
   width: 100%;
 }
+
 .account-button {
   background: var(--button-bg);
   border: 1px solid var(--button-border);
-  padding: 14px;
-  border-radius: 16px;
+  padding: 14px 16px;
+  border-radius: var(--md-sys-shape-corner-medium);
   color: var(--text-color);
   text-decoration: none !important;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15px; /* Etwas größer für bessere Lesbarkeit */
+  gap: 12px;
+  font-size: 15px;
   font-weight: 500;
-  transition: all 0.3s ease;
-}
-.account-button:hover { 
-  background: var(--button-hover-bg); 
-  transform: translateY(-2px); 
-  box-shadow: var(--button-glow); 
+  transition: all var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
+  position: relative;
+  overflow: hidden;
 }
 
-/* FREUNDESLISTE */
+.account-button:hover {
+  background: var(--button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.account-button:active {
+  transform: translateY(0);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+/* M3 Ripple inside account buttons */
+.account-button md-ripple {
+  --md-ripple-hover-color: var(--md-sys-color-on-surface);
+  --md-ripple-pressed-color: var(--md-sys-color-on-surface);
+  --md-ripple-hover-opacity: 0.08;
+  --md-ripple-pressed-opacity: 0.12;
+}
+
+/* ============================================
+   FRIENDS LIST
+   ============================================ */
 .description {
   padding: 24px;
   background: var(--description-bg);
   border-top: 1px solid var(--card-border);
-  border-radius: 0 0 24px 24px;
+  border-radius: 0 0 var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large);
   text-align: center;
-  line-height: 2.2; /* Mehr Abstand zwischen den Zeilen für Lesbarkeit */
+  line-height: 2.2;
   margin-top: 32px;
-  font-size: 16px;
+  font-size: 15px;
+  color: var(--text-secondary);
 }
+
 .friend-item {
   display: inline-block;
   white-space: nowrap;
   margin: 0 10px;
+  color: var(--text-color);
 }
 
-.footer-bubble { margin-top: 48px; padding: 24px; text-align: center; }
-.footer-bubble-content a, .footer-bubble-content span {
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer-bubble {
+  margin-top: 48px;
+  padding: 24px;
+  text-align: center;
+}
+
+.footer-bubble-content a,
+.footer-bubble-content span {
   color: var(--footer-link-color);
   text-decoration: none;
   margin: 0 16px;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
+  font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+  transition: color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
 }
-.footer-bubble-content a:hover, .footer-bubble-content span:hover { text-decoration: underline; }
 
+.footer-bubble-content a:hover,
+.footer-bubble-content span:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* ============================================
+   THEME SWITCHER (now md-icon-button)
+   ============================================ */
 .theme-switcher {
   position: fixed;
   top: 24px;
   right: 24px;
+  z-index: 1000;
+}
+
+.theme-switcher md-icon-button {
+  --md-icon-button-container-width: 48px;
+  --md-icon-button-container-height: 48px;
+  --md-icon-button-icon-size: 24px;
+  --md-icon-button-icon-color: var(--md-sys-color-on-surface);
+  background: var(--profile-bg);
+  border-radius: var(--md-sys-shape-corner-full);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--button-border);
+}
+
+/* Fallback if md-icon-button hasn't loaded yet */
+.theme-switcher-fallback {
   width: 48px;
   height: 48px;
   background: var(--profile-bg);
   border: 1px solid var(--button-border);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1000;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* MODALS (Popups) */
+/* ============================================
+   MODALS (M3 Dialog Style)
+   ============================================ */
 .modal {
   position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -270,46 +553,119 @@ body {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
+    visibility var(--md-sys-motion-duration-medium);
   z-index: 2000;
   padding: 24px;
   box-sizing: border-box;
   overscroll-behavior: contain;
 }
-.modal.active { opacity: 1; visibility: visible; }
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
 
 .modal-content {
-  background: var(--modal-bg); 
+  background: var(--modal-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   width: 100%;
   max-width: 650px;
   max-height: 85vh;
-  border-radius: 24px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 32px;
   overflow-y: auto;
   position: relative;
-  transform: scale(0.95);
-  transition: transform 0.3s ease;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+  transform: scale(0.92) translateY(16px);
+  transition: transform var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
   border: 1px solid var(--card-border);
   color: var(--text-color);
   overscroll-behavior: contain;
 }
-.modal.active .modal-content { transform: scale(1); }
 
-.modal-content::-webkit-scrollbar { width: 8px; }
-.modal-content::-webkit-scrollbar-track { background: transparent; margin: 16px 0; }
-.modal-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 16px; }
-.modal-content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
-.light-mode .modal-content::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
-.light-mode .modal-content::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.3); }
+.modal.active .modal-content {
+  transform: scale(1) translateY(0);
+}
 
-.modal-content h2, .modal-content h3 { margin-top: 24px; }
-.modal-content p, .modal-content li { line-height: 1.7; color: var(--text-secondary); }
-.modal-content a { color: var(--footer-link-color); text-decoration: underline; cursor: pointer; }
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
 
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 16px 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.light-mode .modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-family: 'Google Sans', 'Fredoka', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.modal-content h3 {
+  margin-top: 24px;
+  font-size: 16px;
+  font-family: 'Google Sans', 'Fredoka', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.modal-content p,
+.modal-content li {
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.modal-content a {
+  color: var(--footer-link-color);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity var(--md-sys-motion-duration-short);
+}
+
+.modal-content a:hover {
+  opacity: 0.8;
+}
+
+/* M3 styled close button */
 .close-modal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+}
+
+.close-modal md-icon-button {
+  --md-icon-button-icon-color: var(--md-sys-color-on-surface-variant);
+  --md-icon-button-container-width: 40px;
+  --md-icon-button-container-height: 40px;
+}
+
+/* Fallback close button for pages without Material components */
+.close-modal-fallback {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -317,13 +673,49 @@ body {
   font-weight: bold;
   cursor: pointer;
   color: var(--text-secondary);
-  transition: 0.2s;
+  transition: color var(--md-sys-motion-duration-short), transform var(--md-sys-motion-duration-short);
+  line-height: 1;
+  background: none;
+  border: none;
+  padding: 0;
 }
-.close-modal:hover { color: var(--text-color); transform: scale(1.1); }
 
+.close-modal-fallback:hover {
+  color: var(--text-color);
+  transform: scale(1.1);
+}
+
+/* ============================================
+   M3 DIVIDER
+   ============================================ */
+md-divider {
+  --md-divider-color: var(--md-sys-color-outline-variant);
+  margin: 24px 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 600px) {
-  .avatar-container { position: relative; top: -70px; right: auto; margin: 0 auto -50px; }
-  .profile-info { align-items: center; text-align: center; }
-  .accounts { grid-template-columns: 1fr; }
-  .footer-bubble-content a, .footer-bubble-content span { display: block; margin: 16px 0; }
+  .avatar-container {
+    position: relative;
+    top: -70px;
+    right: auto;
+    margin: 0 auto -50px;
+  }
+
+  .profile-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .accounts {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bubble-content a,
+  .footer-bubble-content span {
+    display: block;
+    margin: 16px 0;
+  }
 }

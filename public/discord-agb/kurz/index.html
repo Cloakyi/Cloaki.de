@@ -5,16 +5,52 @@
   <link rel="icon" type="image/png" href="Unbenannt.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discord-Regeln (kurz)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Import Map for @material/web ES modules -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "/lib/@material/web/",
+      "@lit/reactive-element": "/lib/@lit/reactive-element/reactive-element.js",
+      "@lit/reactive-element/": "/lib/@lit/reactive-element/",
+      "@lit-labs/ssr-dom-shim": "/lib/@lit-labs/ssr-dom-shim/index.js",
+      "lit": "/lib/lit/index.js",
+      "lit/": "/lib/lit/",
+      "lit-html": "/lib/lit-html/lit-html.js",
+      "lit-html/": "/lib/lit-html/",
+      "lit-element/": "/lib/lit-element/",
+      "lit-element": "/lib/lit-element/index.js",
+      "tslib": "/lib/tslib/tslib.es6.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/icon/icon.js';
+    import '@material/web/divider/divider.js';
+  </script>
+
   <style>
     :root {
-      --bg-gradient-start: #2600ff;
-      --bg-gradient-end: #00ccff;
-      --profile-bg: rgba(0, 0, 0, 0.3);
-      --text-color: #ffffff;
-      --highlight-color: #55c1ff;
-      --link-color: #d400ff;
-      --link-hover: #ff00ea;
+      --bg-gradient-start: #0044ff;
+      --bg-gradient-end: #020081;
+      --profile-bg: rgba(17, 19, 24, 0.75);
+      --text-color: #e2e2e6;
+      --text-secondary: rgba(226, 226, 230, 0.7);
+      --highlight-color: #a0c4ff;
+      --link-color: #d5bee5;
+      --link-hover: #f1deff;
       --shadow-color: rgba(0, 0, 0, 0.5);
+
+      /* M3 Shape */
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-medium: 12px;
+
+      /* M3 Motion */
+      --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+      --md-sys-motion-duration-medium: 300ms;
     }
 
     html, body {
@@ -22,47 +58,96 @@
       margin: 0;
       padding: 0;
       background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
+      background-attachment: fixed;
       color: var(--text-color);
-      font-family: sans-serif;
+      font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    md-icon {
+      font-family: 'Material Symbols Outlined';
+      font-size: 20px;
+      vertical-align: middle;
+      color: var(--highlight-color);
     }
 
     .container {
       background: var(--profile-bg);
-      border-radius: 20px;
-      padding: 2rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      padding: 40px;
       max-width: 1000px;
       width: 95%;
       margin: 2rem auto;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 6px rgba(0,0,0,.15), 0 8px 24px rgba(0,0,0,.2);
       box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    h2, h3 {
+    h2 {
+      color: var(--text-color);
+      margin-top: 0;
+      font-family: 'Google Sans', 'Fredoka', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2 md-icon {
+      font-size: 28px;
+    }
+
+    h3 {
       color: var(--highlight-color);
-      margin-top: 1.5rem;
+      margin-top: 32px;
+      font-family: 'Google Sans', 'Fredoka', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     p, li {
       line-height: 1.7;
+      color: var(--text-secondary);
+      font-size: 15px;
     }
 
     ul {
       padding-left: 1.4rem;
     }
 
+    li {
+      margin-bottom: 4px;
+    }
+
     li::marker {
-      content: "\1F539\0020";
+      content: "\2022\0020";
+      color: var(--highlight-color);
     }
 
     .footer-nav {
-      margin-top: 2rem;
+      margin-top: 32px;
       text-align: center;
     }
 
     .footer-nav a {
       color: var(--highlight-color);
       margin: 0 1rem;
+      text-decoration: none;
+      font-family: 'Google Sans Text', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity var(--md-sys-motion-duration-medium);
+    }
+
+    .footer-nav a:hover {
       text-decoration: underline;
+      opacity: 0.85;
     }
 
     .footer-bubble {
@@ -76,19 +161,23 @@
 
     .footer-bubble-content {
       background: var(--profile-bg);
-      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--md-sys-shape-corner-large);
       padding: 1rem 2rem;
-      box-shadow: 0 0 8px var(--shadow-color);
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
       text-align: center;
       color: var(--text-color);
       font-size: 0.95rem;
       display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .footer-bubble-content a {
       color: var(--link-color);
       margin: 0 0.8rem;
       text-decoration: none;
+      transition: color var(--md-sys-motion-duration-medium);
     }
 
     .footer-bubble-content a:hover {
@@ -96,7 +185,15 @@
       text-decoration: underline;
     }
 
+    md-divider {
+      --md-divider-color: rgba(255, 255, 255, 0.08);
+      margin: 24px 0;
+    }
+
     @media (max-width: 600px) {
+      .container {
+        padding: 24px;
+      }
       .footer-bubble-content {
         font-size: 0.85rem;
         padding: 0.8rem 1rem;
@@ -110,10 +207,10 @@
 </head>
 <body>
   <div class="container">
-    <h2>📜 Discord-Regeln (kurz)</h2>
+    <h2><md-icon>description</md-icon> Discord-Regeln (kurz)</h2>
     <p>Diese Regeln gelten für alle Mitglieder und sorgen für ein respektvolles und sicheres Miteinander. Mit dem Beitritt akzeptierst du sie.</p>
 
-    <h3>⚖️ 1. Verhalten</h3>
+    <h3><md-icon>balance</md-icon> 1. Verhalten</h3>
     <ul>
       <li>Seid freundlich und respektvoll.</li>
       <li>Keine Diskriminierung, Hass oder Beleidigungen.</li>
@@ -121,40 +218,42 @@
       <li>Keine Spam- oder Werbeinhalte ohne Erlaubnis.</li>
     </ul>
 
-    <h3>🔐 2. Datenschutz</h3>
+    <h3><md-icon>lock</md-icon> 2. Datenschutz</h3>
     <ul>
       <li>Keine persönlichen Daten teilen.</li>
       <li>Private Nachrichten nicht ohne Erlaubnis weitergeben.</li>
     </ul>
 
-    <h3>🎯 3. Inhalte</h3>
+    <h3><md-icon>flag</md-icon> 3. Inhalte</h3>
     <ul>
       <li>Keine NSFW- oder unangemessenen Inhalte.</li>
       <li>Politische und religiöse Themen vermeiden.</li>
       <li>Keine Hassrede oder Diskriminierung.</li>
     </ul>
 
-    <h3>🎧 4. Sprachkanäle</h3>
+    <h3><md-icon>headphones</md-icon> 4. Sprachkanäle</h3>
     <ul>
       <li>Respektvolles Verhalten auch im Voicechat.</li>
       <li>Keine Störungen wie Schreien oder Soundboards.</li>
       <li>Lasst andere ausreden.</li>
     </ul>
 
-    <h3>🛠️ 5. Moderation</h3>
+    <h3><md-icon>build</md-icon> 5. Moderation</h3>
     <ul>
       <li>Moderatorenentscheidungen sind verbindlich.</li>
       <li>Konflikte privat und sachlich klären.</li>
     </ul>
 
-    <h3>🎨 6. Eigene Inhalte</h3>
+    <h3><md-icon>palette</md-icon> 6. Eigene Inhalte</h3>
     <ul>
       <li>Nur eigene oder erlaubte Inhalte hochladen.</li>
       <li>Profilbilder müssen angemessen sein.</li>
     </ul>
 
-    <h3>🌟 Zum Schluss</h3>
-    <p>Habt Spaß, seid nett zueinander und macht diesen Server zu einem tollen Ort! 💛</p>
+    <md-divider></md-divider>
+
+    <h3><md-icon>star</md-icon> Zum Schluss</h3>
+    <p>Habt Spaß, seid nett zueinander und macht diesen Server zu einem tollen Ort! <md-icon style="font-size: 18px; color: #ffb74d;">favorite</md-icon></p>
 
     <div class="footer-nav">
       <a href="/impressum/">Impressum</a>

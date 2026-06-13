@@ -5,41 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 – Welt nicht gefunden</title>
   <link rel="icon" href="/Unbenannt.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Import Map for @material/web ES modules -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "/lib/@material/web/",
+      "@lit/reactive-element": "/lib/@lit/reactive-element/reactive-element.js",
+      "@lit/reactive-element/": "/lib/@lit/reactive-element/",
+      "@lit-labs/ssr-dom-shim": "/lib/@lit-labs/ssr-dom-shim/index.js",
+      "lit": "/lib/lit/index.js",
+      "lit/": "/lib/lit/",
+      "lit-html": "/lib/lit-html/lit-html.js",
+      "lit-html/": "/lib/lit-html/",
+      "lit-element/": "/lib/lit-element/",
+      "lit-element": "/lib/lit-element/index.js",
+      "tslib": "/lib/tslib/tslib.es6.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/button/filled-tonal-button.js';
+    import '@material/web/icon/icon.js';
+  </script>
+
   <style>
     :root {
       --bg-gradient-start: #0044ff;
       --bg-gradient-end: #020081;
-      --profile-bg: rgba(0, 0, 0, 0.3);
-      --text-color: #fff;
-      --text-secondary: rgba(255, 255, 255, 0.85);
+      --profile-bg: rgba(17, 19, 24, 0.75);
+      --text-color: #e2e2e6;
+      --text-secondary: rgba(226, 226, 230, 0.75);
       --role-bg: rgba(0, 0, 0, 0.4);
       --role-border: rgba(0, 0, 0, 0.1);
-      
-      /* NEU: Farbe für den Character-Hintergrund rechts */
-      --char-box-bg: rgba(0, 247, 255, 0.4); /* Leuchtendes Cyan, halbtransparent */
-      --char-box-border: rgba(0, 247, 255, 0.6);
-      
-      /* WIEDER HERGESTELLT: Dezente Farben für den Menü-Button links */
-      --button-bg: rgba(0, 0, 0, 0.4);
-      --button-border: rgba(0, 0, 0, 0.15);
-      --button-hover-bg: rgba(0, 0, 0, 0.6);
-      
+      --char-box-bg: rgba(0, 247, 255, 0.25);
+      --char-box-border: rgba(0, 247, 255, 0.4);
+      --button-bg: rgba(160, 196, 255, 0.15);
+      --button-border: rgba(160, 196, 255, 0.2);
+      --button-hover-bg: rgba(160, 196, 255, 0.25);
       --description-bg: rgba(0, 0, 0, 0.25);
       --description-border: rgba(0, 0, 0, 0.199);
-      --link-color: #ffd700;
-      --link-hover: #ffec8e;
+      --link-color: #a0c4ff;
+      --link-hover: #d1e4ff;
       --shadow-color: rgba(0, 0, 0, 0.5);
+
+      /* M3 Shape */
+      --md-sys-shape-corner-medium: 12px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-extra-large: 28px;
+
+      /* M3 Motion */
+      --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+      --md-sys-motion-duration-medium: 300ms;
     }
 
     body {
       background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
       color: var(--text-color);
-      font-family: sans-serif;
+      font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
       margin: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     .main-wrapper {
@@ -57,10 +88,13 @@
       justify-content: center;
       gap: 3rem;
       background: var(--profile-bg);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: 0 0 15px var(--shadow-color);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 48px;
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      box-shadow: 0 2px 6px rgba(0,0,0,.15), 0 8px 24px rgba(0,0,0,.2);
       max-width: 900px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .text-section {
@@ -68,79 +102,73 @@
     }
 
     .text-section h1 {
+      font-family: 'Fredoka', 'Google Sans', sans-serif;
       font-size: 5rem;
       margin: 0 0 1rem 0;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      letter-spacing: -1px;
     }
 
     .text-section h2 {
+      font-family: 'Google Sans', 'Fredoka', sans-serif;
       margin-top: 0;
       font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0;
     }
 
     .text-section p {
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--text-secondary);
+      font-size: 15px;
     }
 
-    /* WIEDER HERGESTELLT: Dezentes Button-Styling links */
-    .button {
-      background: var(--button-bg);
-      border: 1px solid var(--button-border);
-      color: var(--text-color);
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
+    /* M3 Filled Tonal Button Theming */
+    md-filled-tonal-button {
+      --md-filled-tonal-button-container-color: rgba(160, 196, 255, 0.2);
+      --md-filled-tonal-button-label-text-color: #a0c4ff;
+      --md-filled-tonal-button-hover-label-text-color: #d1e4ff;
+      --md-filled-tonal-button-container-shape: var(--md-sys-shape-corner-medium);
       margin-top: 1rem;
-      font-size: 1rem;
-      font-weight: normal; /* Bold entfernt */
-      transition: background 0.3s, transform 0.2s;
+      font-family: 'Google Sans', sans-serif;
     }
 
-    .button:hover {
-      background: var(--button-hover-bg);
-      transform: translateY(-2px); /* Eleganter Hover-Effekt statt Zoom */
-    }
-
-    /* NEU: Hintergrund und Rahmen für das Character-Bild rechts */
     .image-placeholder {
       background: var(--char-box-bg);
-      border: 2px solid var(--char-box-border);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 247, 255, 0.2); /* Sanfter Glüh-Effekt */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--char-box-border);
+      padding: 24px;
+      border-radius: var(--md-sys-shape-corner-large);
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.15);
+      transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
+                  box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
     }
 
-    /* Kleiner Effekt beim Drübergehen über den gesamten Kasten */
     .image-placeholder:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 247, 255, 0.4);
+      box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
     }
 
     .image-placeholder img {
       max-width: 300px;
-      display: block; /* Verhindert Abstände unten */
-      border-radius: 10px;
+      display: block;
+      border-radius: var(--md-sys-shape-corner-medium);
       cursor: pointer;
-      /* Box-shadow hier entfernt, da er jetzt auf dem Container ist */
     }
 
     footer {
       background-color: rgba(0, 0, 0, 0.1);
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
+      padding: 24px;
+      font-size: 14px;
       color: var(--text-secondary);
+      font-family: 'Google Sans Text', sans-serif;
     }
 
     footer a {
       color: var(--link-color);
       text-decoration: none;
       margin: 0 0.5rem;
-      transition: color 0.3s ease;
+      transition: color var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
     }
 
     footer a:hover {
@@ -159,17 +187,17 @@
     #skyblockImage.fall-and-flip {
       position: fixed;
       bottom: 20px;
-      left: 5%; 
-      transform: scaleX(-1); 
+      left: 5%;
+      transform: scaleX(-1);
       transition: all 1s ease-in-out;
       z-index: 1000;
       margin: 0;
-      max-width: 150px; 
+      max-width: 150px;
       box-shadow: none;
     }
 
     #skyblockImage.jumping {
-      animation: jumpAnim 0.5s; 
+      animation: jumpAnim 0.5s;
     }
 
     @keyframes jumpAnim {
@@ -182,7 +210,7 @@
       position: fixed;
       bottom: 20px;
       right: -100px;
-      width: 70px; 
+      width: 70px;
       height: auto;
       z-index: 999;
     }
@@ -198,9 +226,10 @@
       right: 30px;
       font-size: 2.5rem;
       font-weight: bold;
+      font-family: 'Fredoka', sans-serif;
       color: white;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-      display: none; 
+      display: none;
       z-index: 1001;
       pointer-events: none;
     }
@@ -220,7 +249,10 @@
           Vielleicht stehst du gerade auf einer einsamen Skyblock-Insel im leeren Nichts?<br>
           Keine Sorge – mit einem Klick holen wir dich zurück auf festen Boden.
         </p>
-        <button class="button" onclick="window.location.href='/'">Zurück zur Hauptseite</button>
+        <md-filled-tonal-button onclick="window.location.href='/'">
+          <md-icon slot="icon">home</md-icon>
+          Zurück zur Hauptseite
+        </md-filled-tonal-button>
       </div>
 
       <div class="image-placeholder">
@@ -231,7 +263,7 @@
 
   <footer id="mainFooter">
     © 2025 Cloaki. Alle Rechte vorbehalten.<br><br>
-    <a href="/datenschutz">Datenschutz</a> · 
+    <a href="/datenschutz">Datenschutz</a> ·
     <a href="/impressum">Impressum</a>
   </footer>
 
@@ -240,14 +272,14 @@
     const mainBox = document.getElementById('mainBox');
     const footer = document.getElementById('mainFooter');
     const scoreBoard = document.getElementById('scoreBoard');
-    
+
     let isGameRunning = false;
     let isJumping = false;
     let score = 0;
 
     img.addEventListener('click', (e) => {
-      if(isGameRunning) return; 
-      e.stopPropagation(); 
+      if(isGameRunning) return;
+      e.stopPropagation();
       isGameRunning = true;
 
       const rect = img.getBoundingClientRect();
@@ -261,14 +293,14 @@
         mainBox.classList.add('fly-up');
         footer.classList.add('fly-up');
 
-        img.style.top = 'auto'; 
+        img.style.top = 'auto';
         img.classList.add('fall-and-flip');
       }, 50);
 
       setTimeout(() => {
-        img.src = '/bilder/Unguzfuhrled.webp'; 
-        img.style.transition = 'none'; 
-        
+        img.src = '/bilder/Unguzfuhrled.webp';
+        img.style.transition = 'none';
+
         scoreBoard.style.display = 'block';
         startGame();
       }, 1050);
@@ -276,17 +308,17 @@
 
     function triggerJump(e) {
       if (e && e.cancelable) {
-        e.preventDefault(); 
+        e.preventDefault();
       }
 
       if (!isJumping && isGameRunning) {
         isJumping = true;
         img.classList.add('jumping');
-        
+
         setTimeout(() => {
           img.classList.remove('jumping');
           isJumping = false;
-        }, 500); 
+        }, 500);
       }
     }
 
@@ -301,11 +333,11 @@
       if(!isGameRunning) return;
 
       const obstacle = document.createElement('img');
-      obstacle.src = '/bilder/Cookie_JE2_BE2.webp'; 
+      obstacle.src = '/bilder/Cookie_JE2_BE2.webp';
       obstacle.classList.add('obstacle');
       document.body.appendChild(obstacle);
 
-      const speed = Math.random() * 1.2 + 1.2; 
+      const speed = Math.random() * 1.2 + 1.2;
       obstacle.style.animation = `moveObstacle ${speed}s linear`;
 
       let passed = false;
@@ -313,8 +345,8 @@
       const checkCollision = setInterval(() => {
         const playerRect = img.getBoundingClientRect();
         const obsRect = obstacle.getBoundingClientRect();
-        
-        const hitToleranceX = 25; 
+
+        const hitToleranceX = 25;
         const hitToleranceY = 15;
 
         if (
@@ -326,7 +358,7 @@
           clearInterval(checkCollision);
           isGameRunning = false;
           alert(`Game Over! Du hast ${score} Cookies übersprungen. Die Seite wird neu geladen.`);
-          location.reload(); 
+          location.reload();
         }
 
         if (!passed && obsRect.right < playerRect.left) {
@@ -341,9 +373,9 @@
           obstacle.remove();
         }
         clearInterval(checkCollision);
-        
+
         if(isGameRunning) {
-           setTimeout(spawnObstacle, Math.random() * 1500 + 600); 
+           setTimeout(spawnObstacle, Math.random() * 1500 + 600);
         }
       }, speed * 1000);
     }
