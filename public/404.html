@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +34,7 @@
     import '@material/web/iconbutton/icon-button.js';
   </script>
 </head>
+
 <body>
   <script>
     if (document.cookie.includes('theme=light')) document.body.classList.add('light-mode');
@@ -96,7 +98,7 @@
   </div>
 
   <footer class="error-footer" id="mainFooter">
-    © 2025 Cloaki. Alle Rechte vorbehalten.<br><br>
+    © 2026 Cloaki. Alle Rechte vorbehalten.<br><br>
     <a href="/datenschutz">Datenschutz</a> ·
     <a href="/impressum">Impressum</a>
   </footer>
@@ -107,7 +109,7 @@
 
   <script>
     // Theme vom Cookie übernehmen
-    (function() {
+    (function () {
       var value = '; ' + document.cookie;
       var parts = value.split('; theme=');
       if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
@@ -128,7 +130,7 @@
     let score = 0;
 
     img.addEventListener('click', (e) => {
-      if(isGameRunning) return;
+      if (isGameRunning) return;
       e.stopPropagation();
       isGameRunning = true;
 
@@ -174,13 +176,13 @@
 
     function startGame() {
       document.addEventListener('mousedown', triggerJump);
-      document.addEventListener('touchstart', triggerJump, {passive: false});
+      document.addEventListener('touchstart', triggerJump, { passive: false });
 
       spawnObstacle();
     }
 
     function spawnObstacle() {
-      if(!isGameRunning) return;
+      if (!isGameRunning) return;
 
       const obstacle = document.createElement('img');
       obstacle.src = '/bilder/Cookie_JE2_BE2.webp';
@@ -219,16 +221,17 @@
       }, 10);
 
       setTimeout(() => {
-        if(document.body.contains(obstacle)) {
+        if (document.body.contains(obstacle)) {
           obstacle.remove();
         }
         clearInterval(checkCollision);
 
-        if(isGameRunning) {
-           setTimeout(spawnObstacle, Math.random() * 1500 + 600);
+        if (isGameRunning) {
+          setTimeout(spawnObstacle, Math.random() * 1500 + 600);
         }
       }, speed * 1000);
     }
   </script>
 </body>
+
 </html>
