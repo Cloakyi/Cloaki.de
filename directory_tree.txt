@@ -1,0 +1,52 @@
+PROJEKT-STRUKTUR: cloaki.de
+===========================
+
+[Ordner] .github/
+    ... (Inhalt übersprungen, da zu viele externe Systemdateien)
+[Ordner] archive/
+    ... (Inhalt übersprungen, da zu viele externe Systemdateien)
+[Ordner] public/
+    [Ordner] bilder/
+         - Cloaki-Profiel-1x1.webp
+         - Cookie_JE2_BE2.webp
+         - Profile.webp
+         - Unguzfuhrled.webp
+         - Untitled.png
+         - Untitled.webp
+         - VRChat_coed.webp
+         - zutzugtled.webp
+    [Ordner] datenschutz/
+         - index.html
+         - Unbenannt.png
+    [Ordner] discord-agb/
+        [Ordner] kurz/
+             - index.html
+             - Unbenannt.png
+        [Ordner] umfassend/
+             - index.html
+             - Unbenannt.png
+         - index.html
+         - Unbenannt.png
+    [Ordner] haftung/
+         - index.html
+         - Unbenannt.png
+    [Ordner] impressum/
+         - index.html
+         - Unbenannt.png
+    [Ordner] js/
+         - accessibility.js
+         - app-core.js
+         - background-animation.js
+         - cookie-banner.js
+         - legal-modals.js
+    [Ordner] lib/
+        ... (Inhalt übersprungen, da zu viele externe Systemdateien)
+    [Ordner] TTCommands/
+         - index.html
+     - 404.html
+     - index.html
+     - robots.txt
+     - style.css
+ - .firebaserc
+ - .gitignore
+ - firebase.json

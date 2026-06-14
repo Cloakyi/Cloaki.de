@@ -10,7 +10,6 @@
   <link rel="icon" href="/bilder/Profile.webp" type="image/png">
   <link rel="stylesheet" href="/style.css">
 
-  <!-- Import Map for @material/web ES modules -->
   <script type="importmap">
   {
     "imports": {
@@ -81,72 +80,212 @@
       <a href="https://discord.com/guidelines" target="_blank">Community-Richtlinien</a>.
     </p>
 
-    <h3><md-icon>balance</md-icon> 1. Allgemeines Verhalten</h3>
-    <ul>
-      <li>Seid respektvoll und freundlich gegenüber allen Mitgliedern. Beleidigungen, Drohungen, Mobbing oder Hassrede
-        werden nicht toleriert.</li>
-      <li>Sprache auf diesem Server ist <strong>Deutsch</strong>.</li>
-      <li>Avatare und Nicknames müssen angemessen und nicht anstößig sein.</li>
-      <li>Spam, unnötige Wiederholungen, Capslock-Spam oder Missbrauch von Bots ist verboten.</li>
-      <li>Übermäßiges Pingen von Nutzern oder Teammitgliedern ist zu vermeiden.</li>
-      <li>Werbung oder Fremdlinks nur mit Erlaubnis der Serverleitung.</li>
-    </ul>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <h3><md-icon>gavel</md-icon> 1. Durchsetzung, Ermessensspielraum &amp; Administrative Hierarchie</h3>
+        <p style="margin-top: 0; margin-bottom: 12px; color: var(--text-color); opacity: 0.9; padding-left: 4px;">
+          Sämtliche in diesem Dokument aufgeführten Regeln sind absichtlich äußerst streng, restriktiv und maximal
+          umfassend formuliert. Dies dient der Projektleitung als absoluter rechtlicher und technischer
+          Schutzmechanismus (Absicherung). Wir sichern uns damit gegen jegliche rechtliche Grauzonen ab, um im Notfall
+          eine glasklare Handhabe zu besitzen, störende Elemente sofort vom Server entfernen zu können.</p>
+        <ul>
+          <li><strong>Tatsächliche Durchsetzung (Kulanz):</strong> Dass eine Regel existiert, bedeutet nicht zwingend,
+            dass jeder kleinste Verstoß sofort hart bestraft wird. Die tatsächliche Durchsetzung der Regeln, die
+            Auslegung der Schwere eines Verstoßes und die Verhängung von Strafen obliegen vollständig dem freien
+            Ermessen der Projektleitung. Bagatellverstöße können toleriert werden, solange sie dem Projekt nicht
+            schaden. Wir garantieren jedoch keine Toleranz – die Regeln gelten jederzeit als durchsetzbares Recht.</li>
+          <li><strong>Hierarchie und Administratoren:</strong> Eingesetzte Administratoren und Moderatoren besitzen
+            ebenfalls einen Ermessensspielraum, um das Serverklima zu pflegen und Verstöße zu ahnden.</li>
+          <li><strong>Absolute Autorität (Veto-Recht):</strong> Die endgültige Entscheidungsgewalt liegt unantastbar bei
+            der Projektleitung. Wenn die Projektleitung bestimmt, dass ein bestimmtes Verhalten inakzeptabel ist, haben
+            die Administratoren dieses zwingend zu bestrafen. Umgekehrt kann die Projektleitung jede Entscheidung, jede
+            Strafe und jede Einschätzung eines Administrators jederzeit überschreiben, abändern, für unwirksam erklären
+            oder nachträglich legitimieren. Das Maß der Projektleitung ist das oberste und endgültige Gesetz auf diesem
+            Server.</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <h3><md-icon>balance</md-icon> 2. Grundlegendes Verhalten &amp; Toxizität</h3>
+        <ul>
+          <li><strong>Absolutes Verbot von toxischem Verhalten:</strong> Beleidigungen, Drohungen, Mobbing, Rufmord,
+            passiv-aggressive Provokationen oder Hassrede (Hate Speech) sind strengstens untersagt.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Ein
+              toxisches Umfeld vergiftet die Community-Atmosphäre nachhaltig, vertreibt neue Nutzer und schädigt den Ruf
+              des gesamten Projekts. Der Server ist ein Ort des Respekts, nicht der Anfeindung.</em>
+          </li>
+          <li><strong>Verbot von "Hexenjagden" (Witch-Hunting):</strong> Das öffentliche Anprangern von Nutzern (z. B.
+            durch das Posten von Chatverläufen, um jemanden bloßzustellen) ist absolut verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Konflikte
+              oder Regelverstöße Dritter sind ausschließlich dem Moderations-Team über das Ticket-System zu melden.
+              Selbstjustiz eskaliert Situationen und wird nicht geduldet.</em>
+          </li>
+          <li><strong>Zwingende Sprachvorgabe:</strong> Die Kommunikationssprache auf diesem Server ist ausschließlich
+            Deutsch (sowie gängige englische Fachbegriffe).<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Das
+              Moderationsteam muss zu jeder Zeit in der Lage sein, den Kontext von Nachrichten schnell und fehlerfrei zu
+              überprüfen. Fremdsprachige Nachrichten können nicht effizient moderiert werden.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>lock</md-icon> 2. Datenschutz &amp; Privatsphäre</h3>
-    <ul>
-      <li>Keine Weitergabe privater Daten (z. B. Adresse, Telefonnummer, Passwörter) im Server.</li>
-      <li>Private Nachrichten dürfen nur mit Zustimmung der betroffenen Person veröffentlicht werden.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>report</md-icon> 3. Spam, Werbung &amp; Externe Gefahren</h3>
+        <ul>
+          <li><strong>Strikte Anti-Spam-Richtlinie:</strong> Das Spammen von Nachrichten, absichtliche Wiederholungen
+            (Flooding), übermäßiger Gebrauch von Capslock, exzessiver Emote-Spam, Copy-Pastas oder der Missbrauch von
+            Bot-Commands sind verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Spam
+              zerstört den Lesefluss, macht sachliche Kommunikation unmöglich und zwingt das Team zu unnötigem
+              Moderationsaufwand.</em>
+          </li>
+          <li><strong>Ping- und Markierungs-Missbrauch:</strong> Das sinnlose, wiederholte oder massenhafte Markieren
+            (Pingen) von Nutzern – und insbesondere das Pingen von Projektleitung oder Administratoren ohne akuten,
+            serverseitigen Notfall – ist strengstens verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Pings sind
+              für wichtige Aufmerksamkeit gedacht. Ständige Benachrichtigungen stören den Arbeits- und Privatablauf der
+              Teammitglieder massiv.</em>
+          </li>
+          <li><strong>Werbeverbot:</strong> Jede Form von unaufgeforderter Eigen- oder Fremdwerbung (Links zu anderen
+            Discord-Servern, YouTube-/Twitch-Kanälen, TikToks oder kommerziellen Projekten) ist sowohl in den
+            öffentlichen Kanälen als auch in Direktnachrichten an Servermitglieder strikt untersagt.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Wir sind
+              keine kostenlose Werbetafel. Nutzer sollen hier wegen der Community sein, nicht um Reichweite
+              abzugreifen.</em>
+          </li>
+          <li><strong>Verbot von Schadsoftware &amp; Scams:</strong> Das Posten von verdächtigen Links (z. B. angebliche
+            "Free Discord Nitro"-Links, IP-Grabber, Phishing-Seiten oder illegale Downloads) führt zum sofortigen und
+            permanenten Bann.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Der Schutz
+              der Endgeräte und Accounts unserer Nutzer hat oberste Priorität. Wir dulden keinerlei Risiko für
+              Schadsoftware.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>18_up_rating</md-icon> 3. Altersverifizierung (Ü18)</h3>
-    <ul>
-      <li>Der Zugriff auf Ü18-Bereiche erfolgt über ein Ticket-System.</li>
-      <li><strong>Ablauf:</strong> Nach Eröffnung eines Tickets findet ein Gespräch in einem Call statt. Der User muss
-        sich dort in seinen altersverifizierten VRChat-Account einloggen und dies vorzeigen.</li>
-      <li><strong>Bestätigung:</strong> Zur Identifikation wird ein Bestätigungscode an die mit dem Account verknüpfte
-        E-Mail gesendet und abgeglichen.</li>
-      <li><strong>Datenlöschung:</strong> Die im Google Formular erfassten Daten (E-Mail, Discord-Name, Team-Prüfer)
-        dienen nur der Verifizierung und werden am Ende jeden Monats manuell und vollständig gelöscht.</li>
-      <li>Eine zusätzliche Authentifizierung über den Personalausweis oder das native Discord-System ist möglich, aber
-        nicht zwingend erforderlich.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>lock</md-icon> 4. Privatsphäre, Datenschutz &amp; Doxxing</h3>
+        <ul>
+          <li><strong>Doxxing-Verbot:</strong> Die Weitergabe, das Andeuten oder die Veröffentlichung von sensiblen,
+            privaten Realdaten (z. B. bürgerliche Namen, Adressen, Wohnorte, Telefonnummern, Schulen, IP-Adressen) ist
+            ein schwerer Verstoß und führt ausnahmslos zum sofortigen Bann sowie potenzieller rechtlicher
+            Verfolgung.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Der Schutz
+              der Identität und der physischen Sicherheit unserer Nutzer ist unverhandelbar und gesetzlich
+              verankert.</em>
+          </li>
+          <li><strong>Veröffentlichungsverbot privater Inhalte:</strong> Das Posten von privaten Direktnachrichten,
+            Fotos von Personen oder Sprachaufnahmen ohne die ausdrückliche, nachweisbare Zustimmung aller beteiligten
+            Parteien ist untersagt.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Was im
+              Privaten geschrieben wird, bleibt privat. Das Brechen dieses Vertrauens zerstört das Sicherheitsgefühl der
+              Community.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>flag</md-icon> 4. Inhalte</h3>
-    <ul>
-      <li><strong>NSFW-Inhalte sind ausschließlich in den dafür vorgesehenen Kanälen gestattet.</strong> Außerhalb
-        dieser Bereiche ist das Posten solcher Inhalte streng untersagt.</li>
-      <li>Politische und religiöse Diskussionen bitte vermeiden – sie führen schnell zu Konflikten.</li>
-      <li>Rassismus, Sexismus, Antisemitismus und jede Art von Diskriminierung sind streng untersagt.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>palette</md-icon> 5. Geistiges Eigentum, Digitale Identitäten &amp; Assets</h3>
+        <ul>
+          <li><strong>Respektierung von digitalen Identitäten:</strong> Der Diebstahl, das unerlaubte Kopieren oder die
+            ungefragte Verbreitung von individuellen digitalen Identitäten (Sonas), 3D-Avataren, Texturen oder eigens
+            erstellten Modellen ist auf diesem Server strengstens verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Eigene
+              Charaktere und Assets sind das Ergebnis von stundenlanger kreativer Arbeit und teils teuren Lizenzen. Der
+              Respekt vor dem geistigen Eigentum anderer Creator ist für uns essenziell.</em>
+          </li>
+          <li><strong>Urheberrecht (Copyright):</strong> Es ist strikt untersagt, anderweitig urheberrechtlich
+            geschütztes Material (z. B. illegale Software, geleakte Spiele, Filme) hochzuladen.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Dies dient
+              der zwingenden rechtlichen Absicherung des Servers gegen kostspielige Abmahnungen (Störerhaftung).</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>headphones</md-icon> 5. Sprachkanäle</h3>
-    <ul>
-      <li>Respektvoller Umgang ist auch in Voice-Chats Pflicht.</li>
-      <li>Störgeräusche, Schreien oder laute Musik sind zu vermeiden.</li>
-      <li>Soundboards oder Stimmenverzerrer sind nicht erlaubt.</li>
-      <li>Andere ausreden lassen und nicht absichtlich stören.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>admin_panel_settings</md-icon> 6. Account-Richtlinien &amp; Private Kanäle</h3>
+        <ul>
+          <li><strong>Verbot von Zweit-Accounts (Alts) &amp; Ban-Evasion:</strong> Das Nutzen von alternativen Accounts
+            zur Umgehung von Strafen (Bannumgehung) oder zur Täuschung der Community ist verboten und führt zum
+            Ausschluss aller verknüpften Accounts.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Wer eine
+              Strafe erhält, hat diese zu akzeptieren. Das Untergraben der Moderation durch Zweit-Accounts wird nicht
+              geduldet.</em>
+          </li>
+          <li><strong>Kein Zugangsanspruch für geschlossene Bereiche:</strong> Dieser Server enthält private, versteckte
+            Kanäle. Es besteht kein rechtlicher, technischer oder moralischer Anspruch auf den Zugang. Die Freischaltung
+            erfolgt ausschließlich nach alleinigem Ermessen der Serverleitung (Whitelist-Prinzip).<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Private
+              Bereiche erfordern ein hohes Maß an Vertrauen, das nicht eingefordert, sondern nur vergeben werden
+              kann.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>build</md-icon> 6. Moderation &amp; Konflikte</h3>
-    <ul>
-      <li>Die Anweisungen der Moderatoren/Admins sind zu befolgen.</li>
-      <li>Diskussionen über Entscheidungen bitte privat mit dem Team klären.</li>
-      <li>Konflikte mit anderen Usern zuerst sachlich und direkt lösen – falls nötig, das Team einschalten.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>headphones</md-icon> 7. Sprachkanäle, Streams &amp; Aufnahmen</h3>
+        <ul>
+          <li><strong>Verhalten im Voice-Chat:</strong> Respektvoller Umgang ist zwingend. Störgeräusche, lautes
+            Schreien, das Einspielen von lauter Musik über das Mikrofon sowie die Nutzung von Soundboards oder
+            Stimmenverzerrern (Voice-Changern) sind verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung:
+              Sprachkanäle dienen der klaren und entspannten Kommunikation, nicht der Belästigung anderer durch
+              Lärm.</em>
+          </li>
+          <li><strong>Verbot von Stream-Sniping &amp; Meta-Gaming:</strong> Das Ausnutzen von Informationen aus
+            Livestreams (z. B. auf Twitch oder TikTok), um Streamer der Community im Spiel gezielt zu stören oder sich
+            einen unfairen Vorteil zu verschaffen, ist untersagt.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Dies
+              ruiniert die Content-Erstellung und den Spielspaß für den Streamer und die Zuschauer.</em>
+          </li>
+          <li><strong>Zutrittsverbot unter 16 Jahren für Aufnahme-Bereiche:</strong> Wer sich in unseren Sprachkanälen
+            aufhält (oder zukünftig In-Game-Voice-Mods nutzt), stimmt automatisch zu, dass seine Stimme potenziell in
+            Video- oder Livestream-Aufnahmen Dritter aufgezeichnet wird. Da das rechtliche Mindestalter für diese
+            eigenständige Einwilligung 16 Jahre beträgt, ist Personen unter 16 Jahren der Zutritt zu diesen
+            Sprachkanälen absolut untersagt.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Dies ist
+              eine zwingende gesetzliche Vorgabe zum Schutz von Minderjährigen und zur rechtlichen Absicherung der
+              aufzeichnenden Content Creator.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>palette</md-icon> 7. Eigene Inhalte</h3>
-    <ul>
-      <li>Nur Inhalte posten, an denen du die Rechte hast.</li>
-      <li>Profilbilder und hochgeladene Inhalte dürfen keine fremden oder anstößigen Materialien enthalten.</li>
-    </ul>
+      <div class="rule-card">
+        <h3><md-icon>flag</md-icon> 8. NSFW, Altersbeschränkungen &amp; Extreme Inhalte</h3>
+        <ul>
+          <li><strong>Absolutes NSFW-Verbot in öffentlichen Bereichen:</strong> NSFW-Inhalte (Pornografie, Nacktheit,
+            extreme Gewaltdarstellungen, Gore) sowie stark suggestive Inhalte sind außerhalb der explizit dafür
+            markierten und altersbeschränkten Kanäle strengstens verboten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Wir müssen
+              sicherstellen, dass Nutzer keinen Inhalten ausgesetzt werden, denen sie nicht ausdrücklich zugestimmt
+              haben.</em>
+          </li>
+          <li><strong>Diskriminierung &amp; Extremismus:</strong> Rassismus, Antisemitismus, Homophobie, Transphobie und
+            die Verbreitung von politischem oder religiösem Extremismus führen zum sofortigen Bann.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Solches
+              Gedankengut hat hier keinen Platz und verstößt gegen fundamentale menschliche Werte und die
+              Nutzungsbedingungen der Plattform.</em>
+          </li>
+        </ul>
+      </div>
 
-    <md-divider></md-divider>
+      <div class="rule-card">
+        <h3><md-icon>support_agent</md-icon> 9. Support, Tickets &amp; Administration</h3>
+        <ul>
+          <li><strong>Nutzung des Ticket-Systems:</strong> Bei Fragen, Meldungen von Regelverstößen oder Problemen ist
+            zwingend das dafür vorgesehene Ticket-System zu nutzen.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Dies
+              gewährleistet, dass Anliegen strukturiert vom gesamten Team bearbeitet werden können und nichts
+              untergeht.</em>
+          </li>
+          <li><strong>Kein Support per Direktnachricht:</strong> Teammitglieder sind nicht verpflichtet,
+            Support-Anfragen in ihren privaten Direktnachrichten zu beantworten.<br>
+            <em style="opacity: 0.8; font-size: 0.95em; display: inline-block; margin-top: 4px;">Begründung: Das Team
+              hat ein Recht auf Privatsphäre. Alles Administrative gehört auf den Server.</em>
+          </li>
+        </ul>
+      </div>
 
-    <h3><md-icon>star</md-icon> 8. Schlussbestimmungen</h3>
-    <p>Der Beitritt zu diesem Server ist freiwillig. Mit der Nutzung akzeptierst du diese Regeln.
-      Verstöße können je nach Schweregrad Verwarnungen, temporäre oder dauerhafte Ausschlüsse nach sich ziehen.
-      Unser Ziel ist es, dass sich alle Mitglieder wohlfühlen und sicher miteinander interagieren können. <md-icon
-        style="font-size: 18px; color: #ffb74d;">favorite</md-icon></p>
+    </div>
 
     <div class="footer-nav">
       <a href="/impressum/">Impressum</a>
