@@ -43,9 +43,14 @@
     if (loader) loader.style.zoom = 1 / scale;
   }
 
+  function getSavedZoom() {
+    let z = parseInt(localStorage.getItem(ZOOM_KEY), 10) || 100;
+    return z < 100 ? 100 : z;
+  }
+
   // Sofort anwenden um FOUC der Farben zu vermeiden
   loadAndApplyMode();
-  applyZoom(localStorage.getItem(ZOOM_KEY) || 100);
+  applyZoom(getSavedZoom());
 
   // 3. UI Injektion (erst wenn DOM ready)
   function initUI() {
@@ -103,8 +108,8 @@
           <p style="font-size: 14px; margin-top: 4px; margin-bottom: 16px; color: var(--text-secondary);">Macht Texte und Elemente größer oder kleiner.</p>
           <div style="display: flex; align-items: center; gap: 16px;">
             <span style="font-size: 14px; width: 40px; text-align: right;">100%</span>
-            <input type="range" id="a11y-zoom-slider" min="80" max="150" step="10" value="${localStorage.getItem(ZOOM_KEY) || 100}" style="flex: 1; accent-color: var(--md-sys-color-primary); cursor: pointer;">
-            <span style="font-size: 14px; width: 45px;" id="a11y-zoom-val">${localStorage.getItem(ZOOM_KEY) || 100}%</span>
+            <input type="range" id="a11y-zoom-slider" min="100" max="150" step="10" value="${getSavedZoom()}" style="flex: 1; accent-color: var(--md-sys-color-primary); cursor: pointer;">
+            <span style="font-size: 14px; width: 45px;" id="a11y-zoom-val">${getSavedZoom()}%</span>
           </div>
         </div>
       </div>
