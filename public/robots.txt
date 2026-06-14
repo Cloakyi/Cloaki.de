@@ -6,7 +6,6 @@ Allow: /discord-agb/kurz/
 Allow: /discord-agb/umfassend/
 Disallow: /impressum/
 Disallow: /TTCommands/
-Disallow: /lib/
 Disallow: /haftung/
 Disallow: /datenschutz/
 
@@ -18,7 +17,6 @@ Allow: /discord-agb/kurz/
 Allow: /discord-agb/umfassend/
 Disallow: /impressum/
 Disallow: /TTCommands/
-Disallow: /lib/
 Disallow: /haftung/
 Disallow: /datenschutz/
 
@@ -30,7 +28,6 @@ Allow: /discord-agb/kurz/
 Allow: /discord-agb/umfassend/
 Disallow: /impressum/
 Disallow: /TTCommands/
-Disallow: /lib/
 Disallow: /haftung/
 Disallow: /datenschutz/
 
