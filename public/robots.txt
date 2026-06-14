@@ -1,0 +1,39 @@
+# Erlaubnis für Google-Suche
+User-agent: Googlebot
+Allow: /$
+Allow: /discord-agb/
+Allow: /discord-agb/kurz/
+Allow: /discord-agb/umfassend/
+Disallow: /impressum/
+Disallow: /TTCommands/
+Disallow: /lib/
+Disallow: /haftung/
+Disallow: /datenschutz/
+
+# Erlaubnis für Google KI (z.B. Gemini)
+User-agent: Google-Extended
+Allow: /$
+Allow: /discord-agb/
+Allow: /discord-agb/kurz/
+Allow: /discord-agb/umfassend/
+Disallow: /impressum/
+Disallow: /TTCommands/
+Disallow: /lib/
+Disallow: /haftung/
+Disallow: /datenschutz/
+
+# Erlaubnis für Bing
+User-agent: Bingbot
+Allow: /$
+Allow: /discord-agb/
+Allow: /discord-agb/kurz/
+Allow: /discord-agb/umfassend/
+Disallow: /impressum/
+Disallow: /TTCommands/
+Disallow: /lib/
+Disallow: /haftung/
+Disallow: /datenschutz/
+
+# Verbot für alle anderen (andere KIs, Scraper, etc.)
+User-agent: *
+Disallow: /
