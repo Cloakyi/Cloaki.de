@@ -70,7 +70,7 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.18);
   padding: 24px 28px 20px;
   color: var(--text-color, #e2e2e6);
-  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', 'Segoe UI', sans-serif;
+  font-family: 'Outfit', 'Roboto', 'Segoe UI', sans-serif;
 
   /* entrance animation */
   transform: translateY(110%);
@@ -112,7 +112,7 @@
 }
 
 #cloakiCookieBanner .cb-title {
-  font-family: 'Fredoka', 'Google Sans', sans-serif;
+  font-family: 'Fredoka', 'Outfit', sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -135,7 +135,7 @@
   border: 1px solid var(--button-border, rgba(67,71,78,0.4));
   border-radius: var(--md-sys-shape-corner-small, 8px);
   color: var(--text-secondary, rgba(226,226,230,0.7));
-  font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
@@ -230,7 +230,7 @@
 }
 
 #cloakiCookieBanner .cb-row-label {
-  font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.1px;
@@ -311,7 +311,7 @@
   padding: 11px 16px;
   border: none;
   border-radius: var(--md-sys-shape-corner-medium, 12px);
-  font-family: 'Fredoka', 'Google Sans', sans-serif;
+  font-family: 'Fredoka', 'Outfit', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
   cursor: pointer;
@@ -640,3 +640,4 @@
     init();
   }
 })();
+
