@@ -38,9 +38,6 @@
   function applyZoom(zoomVal) {
     const scale = zoomVal / 100;
     document.body.style.zoom = scale;
-    // Inverse zoom for loader to prevent logo shifting
-    const loader = document.getElementById('global-loader');
-    if (loader) loader.style.zoom = 1 / scale;
   }
 
   function getSavedZoom() {

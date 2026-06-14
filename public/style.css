@@ -541,11 +541,25 @@ md-assist-chip {
 }
 
 /* Accessibility Filters */
-html.a11y-mode-protanopia { filter: url('#filter-protanopia'); }
-html.a11y-mode-deuteranopia { filter: url('#filter-deuteranopia'); }
-html.a11y-mode-tritanopia { filter: url('#filter-tritanopia'); }
-html.a11y-mode-grayscale { filter: grayscale(100%); }
-html.a11y-mode-contrast { filter: contrast(130%) saturate(120%); }
+html.a11y-mode-protanopia {
+  filter: url('#filter-protanopia');
+}
+
+html.a11y-mode-deuteranopia {
+  filter: url('#filter-deuteranopia');
+}
+
+html.a11y-mode-tritanopia {
+  filter: url('#filter-tritanopia');
+}
+
+html.a11y-mode-grayscale {
+  filter: grayscale(100%);
+}
+
+html.a11y-mode-contrast {
+  filter: contrast(130%) saturate(120%);
+}
 
 /* Fallback if md-icon-button hasn't loaded yet */
 .theme-switcher-fallback {
@@ -761,7 +775,7 @@ md-divider {
   pointer-events: none;
 }
 
-.subpage-nav > * {
+.subpage-nav>* {
   pointer-events: auto;
 }
 
@@ -935,7 +949,7 @@ body:has(.error-wrapper) {
   border-radius: var(--md-sys-shape-corner-large);
   box-shadow: 0 0 20px rgba(147, 197, 253, 0.1);
   transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-              box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
+    box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
 }
 
 .error-image-box:hover {
@@ -1008,9 +1022,19 @@ body:has(.error-wrapper) {
 }
 
 @keyframes jumpAnim {
-  0% { bottom: 20px; animation-timing-function: ease-out; }
-  45% { bottom: 260px; animation-timing-function: ease-in; }
-  100% { bottom: 20px; }
+  0% {
+    bottom: 20px;
+    animation-timing-function: ease-out;
+  }
+
+  45% {
+    bottom: 260px;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    bottom: 20px;
+  }
 }
 
 .obstacle {
@@ -1023,8 +1047,13 @@ body:has(.error-wrapper) {
 }
 
 @keyframes moveObstacle {
-  0% { right: -100px; }
-  100% { right: 100vw; }
+  0% {
+    right: -100px;
+  }
+
+  100% {
+    right: 100vw;
+  }
 }
 
 #scoreBoard {
@@ -1069,36 +1098,137 @@ body:has(.error-wrapper) {
     margin: 8px 0;
   }
 }
+
 #global-loader {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--md-sys-color-surface, #111318);
+  width: 100vw;
+  height: 100vh;
   z-index: 999999;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s ease;
+  pointer-events: all;
+  overflow: hidden;
+  background: transparent !important;
 }
 
-#global-loader.hidden {
-  opacity: 0;
-  pointer-events: none;
+/* Pseudo-elements for the swipe layers (guarantees they render instantly) */
+#global-loader::before,
+#global-loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  width: 200vw;
+  height: 100%;
+  transform: translateX(0) skewX(-15deg);
+  will-change: transform;
+}
+
+/* Layer 1: Primary Color */
+#global-loader::before {
+  background-color: var(--md-sys-color-primary, #18baf0);
+  z-index: -2;
+}
+
+/* Layer 2: Surface Color */
+#global-loader::after {
+  background-color: var(--md-sys-color-surface, #111318);
+  z-index: -1;
 }
 
 .loader-logo {
-  width: 80px;
-  height: 80px;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: url('/bilder/Cloaki-Profiel-1x1.webp') center/cover no-repeat;
-  animation: pulse-loader 1.5s infinite ease-in-out;
-  box-shadow: 0 0 20px rgba(147, 197, 253, 0.4);
+  background: url('/bilder/Profile.webp') center/cover no-repeat;
+  animation: stinger-pulse 1.5s infinite ease-in-out;
+  box-shadow: 0 0 30px var(--md-sys-color-primary);
+  opacity: 1;
 }
 
-@keyframes pulse-loader {
-  0% { transform: scale(0.9); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(0.9); }
+@keyframes stinger-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px var(--md-sys-color-primary);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px var(--md-sys-color-primary);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px var(--md-sys-color-primary);
+  }
+}
+
+/* STATE: LEAVING (Page loaded, stinger sweeps right) */
+#global-loader.hidden {
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s 1.2s;
+  /* wait for swipe to finish */
+}
+
+#global-loader.hidden::before {
+  transform: translateX(200vw) skewX(-15deg);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+}
+
+#global-loader.hidden::after {
+  transform: translateX(200vw) skewX(-15deg);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+}
+
+#global-loader.hidden .loader-logo {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* let the pulse animation continue while fading out so it doesn't snap */
+}
+
+/* STATE: ENTERING PREP (Stinger teleports to left, ready to sweep in) */
+#global-loader.stinger-prep {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+}
+
+#global-loader.stinger-prep::before,
+#global-loader.stinger-prep::after {
+  transform: translateX(-200vw) skewX(-15deg);
+  transition: none;
+}
+
+#global-loader.stinger-prep .loader-logo {
+  opacity: 0;
+  transition: none;
+  animation: none;
+}
+
+/* STATE: ENTERING (Stinger sweeps in from left to cover screen) */
+#global-loader.stinger-enter {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+}
+
+#global-loader.stinger-enter::before {
+  transform: translateX(0) skewX(-15deg);
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+}
+
+#global-loader.stinger-enter::after {
+  transform: translateX(0) skewX(-15deg);
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+}
+
+#global-loader.stinger-enter .loader-logo {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+  animation: stinger-pulse 1.5s infinite ease-in-out 0.4s;
 }
