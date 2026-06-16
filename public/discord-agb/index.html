@@ -104,16 +104,7 @@
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
 
-  <script>
-    // Theme vom Cookie übernehmen
-    (function () {
-      var value = '; ' + document.cookie;
-      var parts = value.split('; theme=');
-      if (parts.length === 2 && parts.pop().split(';').shift() === 'light') {
-        document.body.classList.add('light-mode');
-      }
-    })();
-  </script>
+
 </body>
 
 </html>

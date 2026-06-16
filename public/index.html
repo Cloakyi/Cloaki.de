@@ -119,40 +119,40 @@
         <div class="accounts">
           <a href="https://www.tiktok.com/@cloakiy" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>phone_iphone</md-icon>
+            <md-icon aria-hidden="true">phone_iphone</md-icon>
             TikTok</a>
           <a href="https://www.twitch.tv/cloakiy" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>videocam</md-icon>
+            <md-icon aria-hidden="true">videocam</md-icon>
             Twitch</a>
           <a href="https://discord.gg/suwEMTC9b7" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>headset_mic</md-icon>
+            <md-icon aria-hidden="true">headset_mic</md-icon>
             Discord</a>
           <a href="https://ko-fi.com/cloaki" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>coffee</md-icon>
+            <md-icon aria-hidden="true">coffee</md-icon>
             Ko-fi</a>
           <a href="https://www.youtube.com/@Cloaki" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>play_circle</md-icon>
+            <md-icon aria-hidden="true">play_circle</md-icon>
             Youtube</a>
           <a href="https://x.com/Cloakiy" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>tag</md-icon> X</a>
+            <md-icon aria-hidden="true">tag</md-icon> X</a>
           <a href="https://www.reddit.com/user/Cloakiy/" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>forum</md-icon> Reddit</a>
+            <md-icon aria-hidden="true">forum</md-icon> Reddit</a>
           <a href="https://steamcommunity.com/profiles/76561199415839546" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>sports_esports</md-icon> Steam</a>
+            <md-icon aria-hidden="true">sports_esports</md-icon> Steam</a>
           <a href="https://vrchat.com/home/user/usr_fa6e084d-9235-4492-a748-78da4c5d7ada" target="_blank"
             class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>3d_rotation</md-icon> VRChat</a>
+            <md-icon aria-hidden="true">3d_rotation</md-icon> VRChat</a>
           <a href="https://t.me/Cloakiy" target="_blank" class="account-button">
             <md-ripple></md-ripple>
-            <md-icon>send</md-icon>
+            <md-icon aria-hidden="true">send</md-icon>
             Telegram</a>
         </div>
       </div>
@@ -321,43 +321,19 @@
     // Theme Logik
     const themeSwitcher = document.getElementById('themeSwitcher');
     const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
 
-    function setCookie(name, value, days) {
-      let expires = "";
-      if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    function getCookie(name) {
-      const nameEQ = name + "=";
-      const ca = document.cookie.split(';');
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-    }
-
-    const savedTheme = getCookie('theme');
-    if (savedTheme === 'light') {
-      body.classList.add('light-mode');
+    // Initiale Icon-Anpassung basierend auf dem aktuellen Body-Status
+    // (die eigentliche Theme-Initialisierung passiert jetzt in app-core.js)
+    if (document.body.classList.contains('light-mode')) {
       if (themeIcon) themeIcon.textContent = 'light_mode';
     }
 
     themeSwitcher.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      if (body.classList.contains('light-mode')) {
+      window.toggleTheme(); // Aufruf der konsolidierten Logik in app-core.js
+      if (document.body.classList.contains('light-mode')) {
         if (themeIcon) themeIcon.textContent = 'light_mode';
-        setCookie('theme', 'light', 365);
       } else {
         if (themeIcon) themeIcon.textContent = 'dark_mode';
-        setCookie('theme', 'dark', 365);
       }
     });
 

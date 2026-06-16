@@ -34,3 +34,5 @@ Disallow: /datenschutz/
 # Verbot für alle anderen (andere KIs, Scraper, etc.)
 User-agent: *
 Disallow: /
+
+Sitemap: https://cloaki.de/sitemap.xml

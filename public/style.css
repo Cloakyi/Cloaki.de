@@ -1245,13 +1245,13 @@ body:has(.error-wrapper) {
 }
 
 .rule-card {
-  background: var(--surface-container);
+  background: var(--md-sys-color-surface-container);
   border-radius: var(--md-sys-shape-corner-large);
   padding: 24px;
   box-shadow: var(--md-sys-elevation-1);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard),
-              box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
+    box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-standard);
   position: relative;
   overflow: hidden;
   animation: fade-in-up 0.6s var(--md-sys-motion-easing-emphasized) backwards;
@@ -1260,7 +1260,7 @@ body:has(.error-wrapper) {
 .rule-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--md-sys-elevation-3);
-  background: var(--surface-container-high);
+  background: var(--md-sys-color-surface-container-high);
 }
 
 .rule-card::before {
@@ -1270,19 +1270,34 @@ body:has(.error-wrapper) {
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--md-sys-color-primary, #a0c4ff);
+  background: var(--md-sys-color-primary);
   opacity: 0.8;
   border-radius: 4px 0 0 4px;
 }
 
-.subpage-container .rule-card h3 {
+.rule-card h3 {
   margin-top: 0;
   margin-bottom: 16px;
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 20px;
+  gap: 8px;
   color: var(--text-color);
+}
+
+.rule-rationale {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  opacity: 0.9;
+  padding-left: 4px;
+}
+
+.rule-explanation {
+  opacity: 0.8;
+  font-size: 0.95em;
+  display: inline-block;
+  margin-top: 4px;
 }
 
 .subpage-container .rule-card h3 md-icon {
@@ -1304,27 +1319,201 @@ body:has(.error-wrapper) {
 .rule-card li {
   margin-bottom: 8px;
 }
+
 .rule-card li:last-child {
   margin-bottom: 0;
 }
 
-.rule-card:nth-child(1) { animation-delay: 0.1s; }
-.rule-card:nth-child(2) { animation-delay: 0.2s; }
-.rule-card:nth-child(3) { animation-delay: 0.3s; }
-.rule-card:nth-child(4) { animation-delay: 0.4s; }
-.rule-card:nth-child(5) { animation-delay: 0.5s; }
-.rule-card:nth-child(6) { animation-delay: 0.6s; }
-.rule-card:nth-child(7) { animation-delay: 0.7s; }
-.rule-card:nth-child(8) { animation-delay: 0.8s; }
-.rule-card:nth-child(9) { animation-delay: 0.9s; }
 
 @keyframes fade-in-up {
   0% {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ============================================
+   REDUCED MOTION (Accessibility)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+  /* Disable rule card stagger animation */
+  .rule-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .rule-card:hover {
+    transform: none;
+  }
+
+  /* Disable skeleton shimmer */
+  .skeleton-shimmer::after {
+    animation: none;
+  }
+
+  /* Disable loader pulse */
+  .loader-logo {
+    animation: none;
+  }
+
+  /* Disable stinger transitions */
+  #global-loader::before,
+  #global-loader::after {
+    transition: none;
+  }
+
+  #global-loader.hidden::before,
+  #global-loader.hidden::after {
+    transition: none;
+  }
+
+  #global-loader.stinger-enter::before,
+  #global-loader.stinger-enter::after {
+    transition: none;
+  }
+
+  #global-loader.hidden .loader-logo,
+  #global-loader.stinger-prep .loader-logo,
+  #global-loader.stinger-enter .loader-logo {
+    transition: none;
+    animation: none;
+  }
+
+  /* Disable banner/avatar fade-in transition */
+  .banner-img,
+  .avatar-img {
+    transition: none;
+    opacity: 1;
+  }
+
+  /* Disable modal scale transition */
+  .modal-content {
+    transition: none;
+    transform: scale(1) translateY(0);
+  }
+
+  /* Disable button hover lift */
+  .account-button:hover {
+    transform: none;
+  }
+
+  /* Disable 404 easter egg animations */
+  .fly-up {
+    transition: none;
+  }
+
+  #skyblockImage.jumping {
+    animation: none;
+  }
+
+  .obstacle {
+    animation-duration: 0.01s !important;
+  }
+
+  /* Disable error-image-box hover */
+  .error-image-box:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   EXPLICIT REDUCED MOTION (Toggle)
+   ============================================ */
+.a11y-reduced-motion .rule-card,
+.a11y-reduced-motion .skeleton-shimmer::after,
+.a11y-reduced-motion .loader-logo,
+.a11y-reduced-motion #global-loader::before,
+.a11y-reduced-motion #global-loader::after,
+.a11y-reduced-motion #global-loader.hidden::before,
+.a11y-reduced-motion #global-loader.hidden::after,
+.a11y-reduced-motion #global-loader.stinger-enter::before,
+.a11y-reduced-motion #global-loader.stinger-enter::after,
+.a11y-reduced-motion #global-loader.hidden .loader-logo,
+.a11y-reduced-motion #global-loader.stinger-prep .loader-logo,
+.a11y-reduced-motion #global-loader.stinger-enter .loader-logo,
+.a11y-reduced-motion .banner-img,
+.a11y-reduced-motion .avatar-img,
+.a11y-reduced-motion .modal-content,
+.a11y-reduced-motion .account-button:hover,
+.a11y-reduced-motion .fly-up,
+.a11y-reduced-motion #skyblockImage.jumping,
+.a11y-reduced-motion .error-image-box:hover,
+.a11y-reduced-motion * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+.a11y-reduced-motion .obstacle {
+  animation-duration: 0.01s !important;
+}
+
+/* ============================================
+   SIMPLE MODE (High Contrast / Text Focus)
+   ============================================ */
+html.a11y-simple-mode.light-mode {
+  --md-sys-color-background: #ffffff;
+  --md-sys-color-surface: #ffffff;
+  --md-sys-color-surface-container: #ffffff;
+  --md-sys-color-surface-container-high: #f0f0f0;
+  --md-sys-color-primary: #000000;
+  --text-color: #000000;
+  --text-secondary: #222222;
+  --card-bg: #ffffff;
+  --card-border: #000000;
+}
+
+html.a11y-simple-mode:not(.light-mode) {
+  --md-sys-color-background: #000000;
+  --md-sys-color-surface: #000000;
+  --md-sys-color-surface-container: #000000;
+  --md-sys-color-surface-container-high: #111111;
+  --md-sys-color-primary: #ffffff;
+  --text-color: #ffffff;
+  --text-secondary: #dddddd;
+  --card-bg: #000000;
+  --card-border: #ffffff;
+}
+
+html.a11y-simple-mode body {
+  background: var(--md-sys-color-background) !important;
+  color: var(--text-color) !important;
+}
+
+html.a11y-simple-mode .main-content,
+html.a11y-simple-mode .subpage-container,
+html.a11y-simple-mode .rule-card,
+html.a11y-simple-mode .account-button,
+html.a11y-simple-mode .modal-content,
+html.a11y-simple-mode .lm-panel {
+  background: var(--md-sys-color-surface) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+html.a11y-simple-mode .rule-card::before {
+  background: var(--md-sys-color-primary) !important;
+}
+
+html.a11y-simple-mode .background-animation,
+html.a11y-simple-mode .banner-overlay {
+  display: none !important;
+}
+
+/* ============================================
+   IMAGE SELECTION PREVENTION
+   ============================================ */
+img,
+md-icon {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
